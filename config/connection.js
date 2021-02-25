@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
   port: 3306,
   user: 'root',
 
-  password: '',
+  password: 'CHANGE ME',
   database: 'dogs_db',
 });
 
