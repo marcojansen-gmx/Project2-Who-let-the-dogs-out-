@@ -1,0 +1,12 @@
+/* Nadja */
+#card {
+
+    max-width: 800px;
+    height: auto;
+    background-color: antiquewhite;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
