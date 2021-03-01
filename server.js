@@ -1,14 +1,14 @@
 // ADRIAN
 const express = require('express');
 const exphbs = require('express-handlebars');
+
+// Sets up the Express App
+
 const htmlRouter = require('./routes/html-routes.js');
 const apiRouter = require('./routes/api-routes.js');
 
-// Sets up the Express App
 const app = express();
-
 const PORT = process.env.PORT || 8080;
-
 // Requiring our models for syncing
 const db = require('./models');
 
