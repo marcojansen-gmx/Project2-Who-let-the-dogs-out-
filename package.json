@@ -28,9 +28,12 @@
     "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.5.0"
   }
 }
