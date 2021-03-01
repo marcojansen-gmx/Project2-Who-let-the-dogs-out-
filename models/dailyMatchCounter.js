@@ -1,15 +1,14 @@
-const { DataTypes } = require('sequelize');
-const sequelizeConn = require('../config/config.json');
+module.exports = (sequelize, Sequelize) => {
+  const dailyMatchCounter = sequelize.define('dailyMatchCounter', {
+    numMatches: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    created_date: {
+      type: Sequelize.DATE,
+      allowNull: false
+    }
+  });
 
-const dailyMatchCounter = sequelizeConn.define('match', {
-  numMatches: DataTypes.INTEGER,
-  created_at: DataTypes.DATE
-});
-
-dailyMatchCounter.associate = (user) => {
-  dailyMatchCounter.belongsTo(user, { as: 'user_id', constraints: false });
+  return dailyMatchCounter;
 };
-
-dailyMatchCounter.sync();
-
-module.exports = dailyMatchCounter;

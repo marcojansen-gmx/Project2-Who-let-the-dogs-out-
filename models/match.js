@@ -1,12 +1,18 @@
-const { DataTypes } = require('sequelize');
-const sequelizeConn = require('../config/config.json');
+module.exports = (sequelize, Sequelize) => {
+  const match = sequelize.define('match', {
+    requestingDog: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    dogRequesting: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    created_at: {
+      type: Sequelize.DATE,
+      allowNull: false
+    }
+  });
 
-const match = sequelizeConn.define('match', {
-  requestingDog: DataTypes.INTEGER,
-  dogRequesting: DataTypes.INTEGER,
-  created_at: DataTypes.DATE
-});
-
-match.sync();
-
-module.exports = match;
+  return match;
+};
