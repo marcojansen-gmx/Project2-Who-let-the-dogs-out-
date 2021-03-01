@@ -2,8 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const htmlRouter = require('./routes/html-routes.js');
-const authorRouter = require('./routes/author-api-routes.js');
-const apiRouter = require('./routes/post-api-routes.js');
+const apiRouter = require('./routes/api-routes.js');
 
 // Sets up the Express App
 const app = express();
