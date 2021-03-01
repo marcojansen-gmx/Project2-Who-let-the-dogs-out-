@@ -28,11 +28,11 @@ class Carousel {
         if (this.cards.length > 0) {
 
             // set default top card position and scale
-            this.topCard.style.transform =
+            // this.topCard.style.transform =
                 // 'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
 
             // destroy previous Hammer instance, if present
-             (this.hammer) this.hammer.destroy()
+            if(this.hammer) this.hammer.destroy()
 
             // listen for tap and pan gestures on top card
             this.hammer = new Hammer(this.topCard)
@@ -73,7 +73,7 @@ class Carousel {
         setTimeout(() => {
             // reset transform properties
             this.topCard.style.transform =
-                // 'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
+                'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
         }, 100)
 
     }
