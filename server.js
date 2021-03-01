@@ -1,8 +1,6 @@
 // ADRIAN
 const express = require('express');
 const exphbs = require('express-handlebars');
-const htmlRouter = require('./routes/html-routes.js');
-const apiRouter = require('./routes/api-routes.js');
 
 // Sets up the Express App
 const app = express();
@@ -16,11 +14,15 @@ const db = require('./models');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 // Static directory
 app.use(express.static('public'));
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+const htmlRouter = require('./routes/html-routes.js');
+const apiRouter = require('./routes/api-routes.js');
+
 
 // Invoke routes - Routes Still to ber Determined
 htmlRouter(app);
@@ -30,3 +32,4 @@ apiRouter(app);
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
+
