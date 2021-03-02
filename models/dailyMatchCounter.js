@@ -3,10 +3,6 @@ module.exports = (sequelize, Sequelize) => {
     numMatches: {
       type: Sequelize.INTEGER,
       allowNull: false
-    },
-    created_date: {
-      type: Sequelize.DATE,
-      allowNull: false
     }
   });
 

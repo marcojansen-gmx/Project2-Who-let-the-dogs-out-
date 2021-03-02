@@ -23,7 +23,6 @@ app.use(express.static('public'));
 const htmlRouter = require('./routes/html-routes.js');
 const apiRouter = require('./routes/api-routes.js');
 
-
 // Invoke routes - Routes Still to ber Determined
 htmlRouter(app);
 apiRouter(app);
@@ -32,4 +31,3 @@ apiRouter(app);
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
-

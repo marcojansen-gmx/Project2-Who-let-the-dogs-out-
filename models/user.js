@@ -30,10 +30,6 @@ module.exports = (sequelize, Sequelize) => {
     password: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    created_at: {
-      type: Sequelize.DATE,
-      allowNull: false
     }
   });
   // user.prototype.validPassword = function (password) {
