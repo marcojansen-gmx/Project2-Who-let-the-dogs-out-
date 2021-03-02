@@ -1,21 +1,23 @@
-// Owner MJ
-
 {
   "development": {
     "username": "root",
-    "password": "DB_PASS",
+    "password": "@kina1987",
     "database": "dogs_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "DB_PASS",
-    "database": "dogs_db_test",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL"
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
