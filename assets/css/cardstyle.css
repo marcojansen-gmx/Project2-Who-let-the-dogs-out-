@@ -39,12 +39,14 @@
   padding: 0.5rem 1rem;
   font-size: 12px;
 }
+
 .card .actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding: 0.5rem 1rem;
 }
+
 .card svg {
   width: 85px;
   height: 85px;
