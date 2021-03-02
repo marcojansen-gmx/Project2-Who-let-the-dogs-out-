@@ -7,10 +7,6 @@ module.exports = (sequelize, Sequelize) => {
     dogRequesting: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    created_at: {
-      type: Sequelize.DATE,
-      allowNull: false
     }
   });
 

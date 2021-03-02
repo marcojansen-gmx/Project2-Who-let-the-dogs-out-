@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    name: {
+    dogName: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -16,31 +16,25 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     desexed: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false
+      type: Sequelize.BOOLEAN
     },
     allergies: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    chieldfriendly: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false
+    childfriendly: {
+      type: Sequelize.BOOLEAN
     },
-    desc: {
+    usertext: {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    image: {
+    dogImage: {
       type: Sequelize.BLOB,
       allowNull: false
     },
     user_id: {
       type: Sequelize.INTEGER,
-      allowNull: false
-    },
-    created_at: {
-      type: Sequelize.DATE,
       allowNull: false
     }
   });
