@@ -1,59 +1,45 @@
-const { DataTypes } = require('sequelize');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
-
-const dog = config.define('dog', {
-  breed: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  age: {
-    type: DataTypes.INTEGER
-  },
-  sex: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  desexed: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false
-  },
-  allergies: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  chieldfriendly: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false
-  },
-  desc: {
-    type: DataTypes.TEXT,
-    allowNull: false
-  },
-  image: {
-    type: DataTypes.BLOB,
-    allowNull: false
-  },
-  user_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: false
-  }
-});
-
-dog.associate = (user) => {
-  // Associating Author with Posts
-  // When an Author is deleted, also delete any associated Posts
-  dog.belongsTo(user, { as: 'user_id', constraints: false });
+module.exports = (sequelize, Sequelize) => {
+  const dog = sequelize.define('dog', {
+    breed: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    dogName: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    age: {
+      type: Sequelize.INTEGER
+    },
+    sex: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    desexed: {
+      type: Sequelize.BOOLEAN
+    },
+    allergies: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    childfriendly: {
+      type: Sequelize.BOOLEAN
+    },
+    usertext: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    dogImage: {
+      type: Sequelize.BLOB,
+      allowNull: false
+    },
+    user_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    }
+  });
+  // dog.associate = (user) => {
+  //   dog.belongsTo(user, { as: 'user_id', constraints: false });
+  // };
+  return dog;
 };
-
-dog.sync();
-
-module.exports = dog;

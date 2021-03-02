@@ -2,9 +2,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 
-// Requiring our models for syncing
-const db = require('./models/index');
-
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -18,6 +15,9 @@ const passport = require('passport');
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Requiring our models for syncing
+const db = require('./models/index');
 
 app.use("/api", apiRouter);
 app.use("/html", htmlRouter);
