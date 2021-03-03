@@ -4,7 +4,7 @@ class Carousel {
 
         this.playdate = element
 
-        // add first two cards programmatically
+        // add first two swipecards programmatically
         this.push()
         this.push()
 
@@ -15,27 +15,27 @@ class Carousel {
 
     handle() {
 
-        // list all cards
-        this.cards = this.playdate.querySelectorAll('.card')
+        // list all swipecards
+        this.swipecards = this.playdate.querySelectorAll('.swipecard')
 
-        // get top card
-        this.topCard = this.cards[this.cards.length - 1]
+        // get top swipecard
+        this.topSwipecard = this.swipecards[this.swipecards.length - 1]
 
-        // get next card
-        this.nextCard = this.cards[this.cards.length - 2]
+        // get next swipecard
+        this.nextSwipecard = this.swipecards[this.swipecards.length - 2]
 
-        // if at least one card is present
-        if (this.cards.length > 0) {
+        // if at least one swipecard is present
+        if (this.swipecards.length > 0) {
 
-            // set default top card position and scale
-            // this.topCard.style.transform =
+            // set default top swipecard position and scale
+            // this.topSswipecard.style.transform =
                 // 'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
 
             // destroy previous Hammer instance, if present
             if(this.hammer) this.hammer.destroy()
 
-            // listen for tap and pan gestures on top card
-            this.hammer = new Hammer(this.topCard)
+            // listen for tap and pan gestures on top swipecard
+            this.hammer = new Hammer(this.topSwipecard)
             this.hammer.add(new Hammer.Tap())
             this.hammer.add(new Hammer.Pan({
                 position: Hammer.position_ALL,
@@ -56,23 +56,23 @@ class Carousel {
 
     onTap(e) {
 
-        // get finger position on top card
+        // get finger position on top swipecard
         let propX = (e.center.x - e.target.getBoundingClientRect().left) / e.target.clientWidth
 
         // get rotation degrees around Y axis (+/- 15) based on finger position
         let rotateY = 15 * (propX < 0.05 ? -1 : 1)
 
         // enable transform transition
-        this.topCard.style.transition = 'transform 100ms ease-out'
+        this.topSwipecard.style.transition = 'transform 100ms ease-out'
 
         // apply rotation around Y axis
-        this.topCard.style.transform =
+        this.topSwipecard.style.transform =
             'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(' + rotateY + 'deg) scale(1)'
 
         // wait for transition end
         setTimeout(() => {
             // reset transform properties
-            this.topCard.style.transform =
+            this.topSwipecard.style.transform =
                 'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
         }, 100)
 
@@ -85,21 +85,21 @@ class Carousel {
             this.isPanning = true
 
             // remove transition properties
-            this.topCard.style.transition = null
-            if (this.nextCard) this.nextCard.style.transition = null
+            this.topSwipecard.style.transition = null
+            if (this.nextSwipecard) this.nextSwipecard.style.transition = null
 
-            // get top card coordinates in pixels
-            let style = window.getComputedStyle(this.topCard)
+            // get top swipecard coordinates in pixels
+            let style = window.getComputedStyle(this.topSwipecard)
             let mx = style.transform.match(/^matrix\((.+)\)$/)
             this.startPosX = mx ? parseFloat(mx[1].split(', ')[4]) : 0
             this.startPosY = mx ? parseFloat(mx[1].split(', ')[5]) : 0
 
-            // get top card bounds
-            let bounds = this.topCard.getBoundingClientRect()
+            // get top swipecard bounds
+            let bounds = this.topSwipecard.getBoundingClientRect()
 
-            // get finger position on top card, top (1) or bottom (-1)
+            // get finger position on top swipecard, top (1) or bottom (-1)
             this.isDraggingFrom =
-                (e.center.y - bounds.top) > this.topCard.clientHeight / 2 ? -1 : 1
+                (e.center.y - bounds.top) > this.topSwipecard.clientHeight / 2 ? -1 : 1
 
         }
 
@@ -120,12 +120,12 @@ class Carousel {
         // get scale ratio, between .95 and 1
         let scale = (95 + (5 * Math.abs(propX))) / 100
 
-        // move and rotate top card
-        this.topCard.style.transform =
+        // move and rotate top swipecard
+        this.topSwipecard.style.transform =
             'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg) rotateY(0deg) scale(1)'
 
-        // scale up next card
-        if (this.nextCard) this.nextCard.style.transform =
+        // scale up next swipecard
+        if (this.nextSwipecard) this.nextSwipecard.style.transform =
             'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(' + scale + ')'
 
         if (e.isFinal) {
@@ -135,8 +135,8 @@ class Carousel {
             let successful = false
 
             // set back transition properties
-            this.topCard.style.transition = 'transform 200ms ease-out'
-            if (this.nextCard) this.nextCard.style.transition = 'transform 100ms linear'
+            this.topSwipecard.style.transition = 'transform 200ms ease-out'
+            if (this.nextSwipecard) this.nextSwipecard.style.transition = 'transform 100ms linear'
 
             // check threshold and movement direction
             if (propX > 0.25 && e.direction == Hammer.DIRECTION_RIGHT) {
@@ -149,38 +149,38 @@ class Carousel {
 
                 successful = true
                 // get left border position
-                posX = -(this.playdate.clientWidth + this.topCard.clientWidth)
+                posX = -(this.playdate.clientWidth + this.topSwipecard.clientWidth)
 
             } else if (propY < -0.25 && e.direction == Hammer.DIRECTION_UP) {
 
                 successful = true
                 // get top border position
-                posY = -(this.playdate.clientHeight + this.topCard.clientHeight)
+                posY = -(this.playdate.clientHeight + this.topSwipecard.clientHeight)
 
             }
 
             if (successful) {
 
-                // throw card in the chosen direction
-                this.topCard.style.transform =
+                // throw swipecard in the chosen direction
+                this.topSwipecard.style.transform =
                     'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)'
 
                 // wait transition end
                 setTimeout(() => {
-                    // remove swiped card
-                    this.playdate.removeChild(this.topCard)
-                    // add new card
+                    // remove swiped swipecard
+                    this.playdate.removeChild(this.topSwipecard)
+                    // add new swipecard
                     this.push()
-                    // handle gestures on new top card
+                    // handle gestures on new top swipecard
                     this.handle()
                 }, 200)
 
             } else {
 
-                // reset cards position and size
-                this.topCard.style.transform =
+                // reset swipecards position and size
+                this.topSwipecard.style.transform =
                     'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)'
-                if (this.nextCard) this.nextCard.style.transform =
+                if (this.nextSwipecard) this.nextSwipecard.style.transform =
                     'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(0.95)'
 
             }
@@ -191,14 +191,14 @@ class Carousel {
 
     push() {
 
-        let card = document.createElement('div')
+        let swipecard = document.createElement('div')
 
-        card.classList.add('card')
+        swipecard.classList.add('swipecard')
 
-        card.style.backgroundImage =
+        swipecard.style.backgroundImage =
             "url('https://picsum.photos/320/320/?random=" + Math.round(Math.random() * 1000000) + "')"
 
-        this.playdate.insertBefore(card, this.playdate.firstChild)
+        this.playdate.insertBefore(swipecard, this.playdate.firstChild)
 
     }
 
