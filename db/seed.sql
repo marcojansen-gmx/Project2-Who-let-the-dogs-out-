@@ -13,6 +13,11 @@ INSERT INTO users (firstname, lastname, postcode, email, username, password, cre
 INSERT INTO users (firstname, lastname, postcode, email, username, password, createdAt, updatedAt) VALUES ('Ron', 'Wesley', '6087', 'Ron@gmx.com', 'Ron123', 'Ron1234', now(), now());
 
 -DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('bulldog', 'Bobby', '4', 'male', '1', 'grass' , '1', 'Very calm dog', 'placeholder', '1', now(), now());
+-DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('rottweiler', 'Spike', '2', 'male', '2', 'none' , '2', 'Do Not Approach', 'placeholder', '1', now(), now());
+-DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('Poodle', 'Fluffy', 1, 'female', '1', 'rottweilers' , '1', 'Sheds hair', 'placeholder', '1', now(), now());
+-DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('Cavoodle', 'Milo', '2', 'male', '1', 'none' , '1', 'Playful and Friendly', 'placeholder', '1', now(), now());
+-DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('Jack Russell', 'Malfoy', '8', 'male', '1', 'Potters' , '2', 'Very nasty', 'placeholder', '1', now(), now());
+-DOGSINSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, user_id, createdAt, updatedAt) VALUES ('Labrador', 'Cooper', '12', 'female', '1', 'grass' , '1', 'Excitable but friendly', 'placeholder', '1', now(), now());
 
 
 
