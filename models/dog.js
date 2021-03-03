@@ -32,14 +32,10 @@ module.exports = (sequelize, Sequelize) => {
     dogImage: {
       type: Sequelize.BLOB,
       allowNull: false
-    },
-    user_id: {
-      type: Sequelize.INTEGER,
-      allowNull: false
     }
   });
-  // dog.associate = (user) => {
-  //   dog.belongsTo(user, { as: 'user_id', constraints: false });
-  // };
+  dog.associate = (db) => {
+    dog.belongsTo(db.user);
+  };
   return dog;
 };
