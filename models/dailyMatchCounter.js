@@ -1,10 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-  const dailyMatchCounter = sequelize.define('dailyMatchCounter', {
+  const DailyMatchCounter = sequelize.define('DailyMatchCounter', {
     numMatches: {
       type: Sequelize.INTEGER,
       allowNull: false
     }
   });
 
-  return dailyMatchCounter;
+  return DailyMatchCounter;
 };
