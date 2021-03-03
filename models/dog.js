@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const dog = sequelize.define('dog', {
+  const Dog = sequelize.define('Dog', {
     breed: {
       type: Sequelize.STRING,
       allowNull: false
@@ -32,14 +32,13 @@ module.exports = (sequelize, Sequelize) => {
     dogImage: {
       type: Sequelize.BLOB,
       allowNull: false
-    },
-    user_id: {
-      type: Sequelize.INTEGER,
-      allowNull: false
     }
   });
-  // dog.associate = (user) => {
-  //   dog.belongsTo(user, { as: 'user_id', constraints: false });
-  // };
-  return dog;
+
+  Dog.associate = (db) => {
+    Dog.belongsTo(db.user);
+  };
+
+  return Dog;
+
 };
