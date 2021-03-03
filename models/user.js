@@ -1,7 +1,7 @@
 // const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, Sequelize) => {
-  const user = sequelize.define('user', {
+  const User = sequelize.define('User', {
     firstname: {
       type: Sequelize.STRING,
       allowNull: false
@@ -40,5 +40,5 @@ module.exports = (sequelize, Sequelize) => {
   // user.addHook('beforeCreate', function (user) {
   //   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   // });
-  return user;
+  return User;
 };
