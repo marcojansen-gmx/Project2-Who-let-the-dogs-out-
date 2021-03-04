@@ -5,8 +5,8 @@ class Carousel {
         this.playdate = element
 
         // add first two swipecards programmatically
-        this.push()
-        this.push()
+        // this.push()
+        // this.push()
 
         // handle gestures
         this.handle()
@@ -16,7 +16,7 @@ class Carousel {
     handle() {
 
         // list all swipecards
-        this.swipecards = this.playdate.querySelectorAll('.swipecard')
+        this.swipecards = this.playdate.querySelectorAll('.swipecard');
 
         // get top swipecard
         this.topSwipecard = this.swipecards[this.swipecards.length - 1]
@@ -198,12 +198,14 @@ class Carousel {
         swipecard.style.backgroundImage =
             "url('https://picsum.photos/320/320/?random=" + Math.round(Math.random() * 1000000) + "')"
 
-        this.playdate.insertBefore(swipecard, this.playdate.firstChild)
+        this.playdate.insertBefore(swipecard, this.playdate.firstChild);
+
 
     }
 
+
 }
 
-let playdate = document.querySelector('#playdate')
+let playdate = document.querySelector('.js-playdate-card-wrapper');
 
 let carousel = new Carousel(playdate)

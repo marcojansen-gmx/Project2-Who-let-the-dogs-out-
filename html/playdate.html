@@ -10,21 +10,21 @@
   <!--Bootstrapp CSS added for layout-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="/public/css/background.css" />
-  <link rel="stylesheet" href="/public/css/style.css" />
-  <link rel="stylesheet" href="/public/css/playdatecard.css" />
-  <link rel="stylesheet" href="/public/css/swipecard.css" />
+  <link rel="stylesheet" href="../public/css/background.css" />
+  <link rel="stylesheet" href="../public/css/style.css" />
+  <link rel="stylesheet" href="../public/css/playdatecard.css" />
+  <link rel="stylesheet" href="../public/css/swipecard.css" />
 
 </head>
 
 <body>
   <!-- Logo -->
   <div class="container logo" id="logo">
-    <img src="/public/logo/dog_logo.svg" alt="Who let the dogs out? Logo">
+    <img src="../public/logo/dog_logo.svg" alt="Who let the dogs out? Logo">
   </div>
 
   <!--------------- Start Playdate ------------->
-  <div id="card-playdate">
+  <div id="playdate-card-wrapper" class="js-playdate-card-wrapper">
     <div class="swipecard">
       <div id="playdate-card" class="container text-center p-4 flex-1 flex flex-col rounded-lg">
         <h1 class="mb-4 text-2xl">Who is your play date?</h1>
@@ -33,13 +33,13 @@
           <div class="play-card">
             <!-- Picture of dog owner -->
             <div>
-              <img class="img-avatar" src="/public/potrait/Avatar_example_photo-1489424731084-a5d8b219a5bb_100x100.jpg"
+              <img class="img-avatar" src="../public/potrait/Avatar_example_photo-1489424731084-a5d8b219a5bb_100x100.jpg"
                 alt="Picture od Dog owner">
             </div>
 
             <!-- Picture of dog -->
             <div class="play-card-text">
-              <img id="dogimage" class="img-dog" src="/public/pic/anoir-chafik-2_3c4dIFYFU-unsplash_750x400_web.jpg"
+              <img id="dogimage" class="img-dog" src="../public/pic/anoir-chafik-2_3c4dIFYFU-unsplash_750x400_web.jpg"
                 alt="Picture of the dogs">
 
               <div class="title-total">
@@ -69,6 +69,8 @@
 
     <!--------------------------------- End Playdate ---------------------------------------------------------->
 
+      
+
     <!-- Footer -->
     <div class="container">
       <footer class="center">
@@ -96,8 +98,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
     integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="/public/js/hammer.js"></script>
-  <script type="text/javascript" src="/public/js/swipe.js"></script>
+  <script type="text/javascript" src="../public/js/hammer.js"></script>
+  <script type="text/javascript" src="../public/js/swipe.js"></script>
 
 </body>
 
