@@ -1,12 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
-  const dailyMatchCounter = sequelize.define('dailyMatchCounter', {
+  const DailyMatchCounter = sequelize.define('DailyMatchCounter', {
     numMatches: {
       type: Sequelize.INTEGER,
       allowNull: false
     }
   });
-  dailyMatchCounter.associate = (db) => {
-    dailyMatchCounter.belongsTo(db.user);
+  DailyMatchCounter.associate = (db) => {
+    DailyMatchCounter.belongsTo(db.User);
   };
-  return dailyMatchCounter;
+
+  return DailyMatchCounter;
 };

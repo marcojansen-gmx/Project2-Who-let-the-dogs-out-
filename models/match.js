@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const match = sequelize.define('match', {
+  const Match = sequelize.define('Match', {
     requestingDog: {
       type: Sequelize.STRING,
       allowNull: false
@@ -10,5 +10,5 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
-  return match;
+  return Match;
 };
