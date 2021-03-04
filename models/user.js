@@ -1,4 +1,4 @@
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define('User', {
@@ -32,13 +32,13 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     }
   });
-  // user.prototype.validPassword = function (password) {
-  //   return bcrypt.compareSync(password, this.password);
-  // };
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  };
   // // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // // In this case, before a User is created, we will automatically hash their password
-  // user.addHook('beforeCreate', function (user) {
-  //   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-  // });
+  User.addHook('beforeCreate', function (User) {
+    User.password = bcrypt.hashSync(User.password, bcrypt.genSaltSync(10), null);
+  });
   return User;
 };
