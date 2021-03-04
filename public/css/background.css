@@ -1,0 +1,27 @@
+/*Nadja*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+body {
+	background: linear-gradient(-45deg, #ecebb2, #b0e090, #35f7dd, #04e2ff);
+	background-size: 2000% 2000%;
+	animation: gradient 15s ease infinite;
+	font-family: Roboto, sans-serif;
+	margin: 0;
+	height: 100vh;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+

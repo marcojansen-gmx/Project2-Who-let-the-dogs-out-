@@ -1,59 +1,44 @@
-const { DataTypes } = require('sequelize');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
+module.exports = (sequelize, Sequelize) => {
+  const Dog = sequelize.define('Dog', {
+    breed: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    dogName: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    age: {
+      type: Sequelize.INTEGER
+    },
+    sex: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    desexed: {
+      type: Sequelize.BOOLEAN
+    },
+    allergies: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    childfriendly: {
+      type: Sequelize.BOOLEAN
+    },
+    usertext: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    dogImage: {
+      type: Sequelize.BLOB,
+      allowNull: false
+    }
+  });
 
-const dog = config.define('dog', {
-  breed: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  age: {
-    type: DataTypes.INTEGER
-  },
-  sex: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  desexed: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false
-  },
-  allergies: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  chieldfriendly: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false
-  },
-  desc: {
-    type: DataTypes.TEXT,
-    allowNull: false
-  },
-  image: {
-    type: DataTypes.BLOB,
-    allowNull: false
-  },
-  user_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: false
-  }
-});
+  Dog.associate = (db) => {
+    Dog.belongsTo(db.user);
+  };
 
-dog.associate = (user) => {
-  // Associating Author with Posts
-  // When an Author is deleted, also delete any associated Posts
-  dog.belongsTo(user, { as: 'user_id', constraints: false });
+  return Dog;
+
 };
-
-dog.sync();
-
-module.exports = dog;

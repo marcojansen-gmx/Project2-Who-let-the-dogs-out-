@@ -1,0 +1,79 @@
+/* Nadja */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+.logo {
+    max-width: 100px;
+    
+}
+#home-card {
+    max-width: 800px;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#login-card {
+    max-width: 800px;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#signup-card {
+    max-width: 800px;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#playdate-card {
+    max-width: 800px;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 0px;
+}
+
+.btn {
+    margin: 10px 0px 10px 0px;
+    
+}
+
+.btn-group {
+    margin: 10px 0px 10px 0px;
+    
+}
+
+  p {
+    margin-bottom: 0.8em;
+  }
