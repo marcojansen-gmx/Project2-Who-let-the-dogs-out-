@@ -5,9 +5,8 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     }
   });
-
   DailyMatchCounter.associate = (db) => {
-    DailyMatchCounter.belongsTo(db.user);
+    DailyMatchCounter.belongsTo(db.User);
   };
 
   return DailyMatchCounter;
