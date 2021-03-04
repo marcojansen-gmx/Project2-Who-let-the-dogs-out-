@@ -97,14 +97,12 @@
                   <p>Please enter here your Information.</p>
                   <div class="input-group">
                     <span class="input-group-text">First and last name</span>
-                    <input type="text" aria-label="First name" class="form-control" placeholder="First Name"
-                      id="firstNameInput">
-                    <input type="text" aria-label="Last name" class="form-control" placeholder="Last Name"
-                      id="lastNameInput">
+                    <input type="text" aria-label="First name" class="form-control" placeholder="First Name">
+                    <input type="text" aria-label="Last name" class="form-control" placeholder="Last Name">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Post Code</label>
-                    <input type="email" class="form-control" id="examplePostcode" aria-describedby="emailHelp"
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                       placeholder="Enter email">
                   </div>
                   <div class="form-group">
@@ -125,35 +123,39 @@
                   <p>Please enter here your Information.</p>
 
                   <span class="input-group-text">Fury Friends Name</span>
-                  <input type="text" aria-label="Name" class="form-control" placeholder="Name" id="dogNameInput">
+                  <input type="text" aria-label="Name" class="form-control" placeholder="Name">
                   <span class="input-group-text">Age</span>
-                  <input type="text" aria-label="Age" class="form-control" placeholder="Age" id="dogAgeInput">
+                  <input type="text" aria-label="Age" class="form-control" placeholder="Age">
                   <span class="input-group-text">Breed</span>
-                  <input type="text" aria-label="Breed" class="form-control" placeholder="Breed" id="dogBreedInput">
+                  <input type="text" aria-label="Breed" class="form-control" placeholder="Breed">
                   <span class="input-group-text">Sex</span>
-                  <input type="text" aria-label="Sex" class="form-control" placeholder="Sex" id="dogSexInput">
+                  <input type="text" aria-label="Sex" class="form-control" placeholder="Sex">
                   <span class="input-group-text">Desexed</span>
-                  <input type="text" aria-label="Desexed" class="form-control" placeholder="Desexed"
-                    id="dogDesexedInput">
+                  <input type="text" aria-label="Desexed" class="form-control" placeholder="Desexed">
                   <span class="input-group-text">Allergies</span>
-                  <input type="text" aria-label="Allergies" class="form-control" placeholder="Allergies"
-                    id="dogAllergiesInput">
+                  <input type="text" aria-label="Allergies" class="form-control" placeholder="Allergies">
                   <span class="input-group-text">Child Friendly</span>
                   <input type="text" aria-label="Child Friendly" class="form-control"
-                    placeholder="Child Friendly (YES or NO)" id="childFriendlyInput">
+                    placeholder="Child Friendly (YES or NO)">
 
 
                   <!-- Photo of Your Dog via file upload -->
                   <div class="form-group">
-                    <label for="exampleFormControlFile1">Photo of Your Dog</label>
-                    <input type="file" class="form-control-file" id="dogPhotoInput">
+                    <div>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                      <input type="file" accept="image/*" name="photo">
+                      <input type="submit" value="upload">
+                    </form>
+                  </div>
+                    <!-- <label for="exampleFormControlFile1">Photo of Your Dog</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
                   </div>
                   <!-- Description of the dog -->
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Describe Your Dog</span>
                     </div>
-                    <textarea class="form-control" aria-label="With textarea" id="dogDescriptionInput"></textarea>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
                   </div>
                   <button type="submit" class="btn btn-outline-primary">Submit</button>
                 </form>
