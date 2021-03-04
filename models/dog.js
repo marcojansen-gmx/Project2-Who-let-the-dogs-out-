@@ -22,10 +22,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    childfriendly: {
+    childFriendly: {
       type: Sequelize.BOOLEAN
     },
-    usertext: {
+    userText: {
       type: Sequelize.TEXT,
       allowNull: false
     },
