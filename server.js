@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 
 // Sets up the Express App
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 const htmlRouter = require('./routes/html-routes.js');
 const apiRouter = require('./routes/api-routes.js');
@@ -18,8 +18,8 @@ app.use(express.json());
 // Requiring our models for syncing
 const db = require('./models');
 
-app.use("/api", apiRouter);
-app.use("/html", htmlRouter);
+// app.use("/api", apiRouter);
+// app.use("/html", htmlRouter);
 // app.use("/users", userRouter);
 // Static directory
 app.use(express.static('public'));
@@ -35,6 +35,6 @@ htmlRouter(app);
 apiRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force:false }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
