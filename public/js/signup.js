@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
@@ -17,6 +17,8 @@ $(document).ready(function() {
       password: passwordInput.val().trim()
     };
 
+    // TESTING GIT KRAKEN
+
     if (!userData.firstName || !userData.lastName || userData.postCode || !userData.email || !userData.password) {
 
       return;
@@ -33,10 +35,10 @@ $(document).ready(function() {
     $.post("/api/signup", {
       email: email,
       password: password
-    }).then(function(data) {
-        window.location.replace("/members");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
+    }).then(function (data) {
+      window.location.replace("/members");
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
       .catch(handleLoginErr);
   }
 
