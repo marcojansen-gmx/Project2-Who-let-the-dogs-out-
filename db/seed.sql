@@ -23,6 +23,8 @@ INSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, u
 INSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, userId, createdAt, updatedAt) VALUES ('Bull Terrier', 'Bibi', '8', 'female', '0', 'grass' , '1', 'does not like water', 'placeholder', '9', now(), now());
 INSERT INTO dogs (breed, dogName, age, sex, desexed, allergies, childfriendly, usertext, dogImage, userId, createdAt, updatedAt) VALUES ('Basenji', 'Oscar', '3', 'male', '1', 'sweets' , '1', 'humps everything', 'placeholder', '10', now(), now());
 
+-- create 10 matches
+                                                                                                                                         
 -- dailyMatchCounters
 INSERT INTO dailyMatchCounters (numMatches, userId, createdAt, updatedAt) VALUES ('3', '1', now(), now());
 INSERT INTO dailyMatchCounters (numMatches, userId, createdAt, updatedAt) VALUES ('1', '2', now(), now());
