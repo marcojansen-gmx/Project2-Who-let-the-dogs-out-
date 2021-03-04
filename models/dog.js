@@ -36,7 +36,7 @@ module.exports = (sequelize, Sequelize) => {
   });
 
   Dog.associate = (db) => {
-    Dog.belongsTo(db.user);
+    Dog.belongsTo(db.User);
   };
 
   return Dog;

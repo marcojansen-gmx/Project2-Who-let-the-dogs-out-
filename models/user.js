@@ -32,11 +32,11 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     }
   });
-  user.associate = (db) => {
-    user.hasMany(db.dog);
+  User.associate = (db) => {
+    User.hasMany(db.Dog);
   };
-  user.associate = (db) => {
-    user.hasMany(db.dailyMatchCounter);
+  User.associate = (db) => {
+    User.hasMany(db.DailyMatchCounter);
   };
   // user.prototype.validPassword = function (password) {
   //   return bcrypt.compareSync(password, this.password);
