@@ -204,7 +204,7 @@ class Carousel {
     }
 
 
-}
+};
 
 let playdate = document.querySelector('.js-playdate-card-wrapper');
 
