@@ -8,8 +8,8 @@ const unauthorized = require("../config/middleware/unauthorized");
 
 module.exports = function (app) {
   //   app.get("/", (req, res) => {
-  //     // If the user already has an account send them to the members page
-  //     if (req.user) {
+  //     // If the User already has an account send them to the members page
+  //     if (req.User) {
   //       res.redirect("/members");
   //     }
   //     res.sendFile(path.join(__dirname, "../public/signup.html"));
