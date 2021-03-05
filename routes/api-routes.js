@@ -49,9 +49,12 @@ module.exports = function (app) {
                         
             } catch(err1) {
                 await t.rollback();
+                console.log('this is the error1 --->', err1);
                 res.status(500).json(err1);
+
             }
         } catch(err2) {
+          console.log('this is the error2 --->', err2);
             res.status(500).json(err2);
         }
         
