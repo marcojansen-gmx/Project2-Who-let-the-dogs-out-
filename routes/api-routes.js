@@ -5,11 +5,11 @@ const unauthorized = require("../config/middleware/unauthorized");
 
 module.exports = function (app) {
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
-        console.log(req.user);
+        console.log(req.User);
         // Sending back a password, even a hashed password, isn't a good idea
         res.json({
-            email: req.user.email,
-            id: req.user.id
+            email: req.User.email,
+            id: req.User.id
         });
     });
     app.post("/api/signup", unauthorized, async (req, res) => {
@@ -21,8 +21,8 @@ module.exports = function (app) {
                 const newUser = await db.User.create({
                     email: req.body.email,
                     password: req.body.password,
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname,
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
                     postcode: req.body.postcode,
                     username: req.body.username,
                 },
@@ -37,7 +37,7 @@ module.exports = function (app) {
                             desexed: req.body.desexed,
                             allergies: req.body.allergies,
                             childfriendly: req.body.childfriendly,
-                            usertext: req.body.usertext,
+                            userText: req.body.userText,
                             dogImage: req.body.dogImage,
                             user_id: newUser.id,
                 },
@@ -49,9 +49,12 @@ module.exports = function (app) {
                         
             } catch(err1) {
                 await t.rollback();
+                console.log('this is the error1 --->', err1);
                 res.status(500).json(err1);
+
             }
         } catch(err2) {
+          console.log('this is the error2 --->', err2);
             res.status(500).json(err2);
         }
         
@@ -68,7 +71,7 @@ module.exports = function (app) {
             //         desexed: req.body.desexed,
             //         allergies: req.body.allergies,
             //         childfriendly: req.body.childfriendly,
-            //         usertext: req.body.usertext,
+            //         userText: req.body.userText,
             //         dogImage: req.body.dogImage,
 
             //     })
@@ -95,15 +98,15 @@ module.exports = function (app) {
 
     // Route for getting some data about our user to be used client side
     app.get("/api/user_data", (req, res) => {
-        if (!req.user) {
+        if (!req.User) {
             // The user is not logged in, send back an empty object
             res.json({});
         } else {
             // Otherwise send back the user's email and id
             // Sending back a password, even a hashed password, isn't a good idea
             res.json({
-                email: req.user.email,
-                id: req.user.id
+                email: req.User.email,
+                id: req.User.id
             });
         }
     });
