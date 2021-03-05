@@ -126,14 +126,25 @@
                   <span class="input-group-text">Breed</span>
                   <input type="text" aria-label="Breed" class="form-control" placeholder="Breed">
                   <span class="input-group-text">Sex</span>
-                  <input type="text" aria-label="Sex" class="form-control" placeholder="Sex">
-                  <span class="input-group-text">Desexed</span>
+                  <span>
+                    <p>Is your dog desexed?:</p>
+<input type="radio" id="desexedYes" name="desexed" value="0">
+<label for="desexedYes">Yes</label>
+<input type="radio" id="desexedNo" name="desexed" value="1">
+<label for="desexedNo">No</label>
+                  </span>
+                  
                   <input type="text" aria-label="Desexed" class="form-control" placeholder="Desexed">
                   <span class="input-group-text">Allergies</span>
                   <input type="text" aria-label="Allergies" class="form-control" placeholder="Allergies">
-                  <span class="input-group-text">Child Friendly</span>
-                  <input type="text" aria-label="Child Friendly" class="form-control"
-                    placeholder="Child Friendly (YES or NO)">
+                  <span>
+                    <p>Child Friendly</p>
+<input type="radio" id="childFriendlyYes" name="desexed" value="0">
+<label for="desexedYes">Yes</label>
+<input type="radio" id="childFriendlyNo" name="desexed" value="1">
+<label for="desexedNo">No</label>
+                  </span>
+                  
 
 
                   <!-- Photo of Your Dog via file upload -->
@@ -156,27 +167,35 @@
                   </div>
                   <button type="submit" class="btn btn-outline-primary">Submit</button>
                 </form>
-                <div></div>
-                <h4 class="mb-4 text-2xl text-left">Disclaimer:</h4>
-                <p class="text-left">Who let the dogs out is an app designed to bring dog owners together, so that they
-                  can self-organize
-                  doggy play dates between their dogs.
-                  Although your and your dog’s wellbeing is our top priority, we cannot assume any responsibility for
-                  anything which happens during your play date. We only establish a connection between dog owners. It is
-                  each registered members’ responsibility to use the information provided by our application only for
-                  its intended purpose and to assure each and everyone’s safety during any events which get scheduled as
-                  a result of the information provided.
-                  All individuals and their dogs choose to participate at their own risk at any events which are
-                  organized as a result of the information provided and the application’s owners are not held liable for
-                  any injury, misbehaviour and/or loss of personal belongings.</p>
-              </div>
-              <div>
-                <p class="alert alert-danger text-left">Please assure that the information provided on the sign up sheet
-                  is
-                  accurate before it is submitted. The application does currently not allow for any corrections on the
-                  provided information as the user data management function is currently in development and will only
-                  become available in the next release version.</p>
-              </div>
+                <div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <h4 class="mb-4 text-2xl text-left">Disclaimer:</h4>
+                      <p class="text-left">Who let the dogs out is an app designed to bring dog owners together, so that they
+                        can self-organize
+                        doggy play dates between their dogs.
+                        Although your and your dog’s wellbeing is our top priority, we cannot assume any responsibility for
+                        anything which happens during your play date. We only establish a connection between dog owners. It is
+                        each registered members’ responsibility to use the information provided by our application only for
+                        its intended purpose and to assure each and everyone’s safety during any events which get scheduled as
+                        a result of the information provided.
+                        All individuals and their dogs choose to participate at their own risk at any events which are
+                        organized as a result of the information provided and the application’s owners are not held liable for
+                        any injury, misbehaviour and/or loss of personal belongings.</p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      <p class="alert alert-danger text-left">Please assure that the information provided on the sign up sheet
+                        is
+                        accurate before it is submitted. The application does currently not allow for any corrections on the
+                        provided information as the user data management function is currently in development and will only
+                        become available in the next release version.</p>
+                      
+                    </label>
+                  </div>
 
             </div>
             <a href="#"
@@ -185,8 +204,9 @@
             </a>
           </div>
           <div class="btn-group">
-            <button class="btn btn-outline-secondary" id="go-back">
-              <a href="../index.html"></a>Go back!</button>
+            <button class="btn btn-outline-secondary">
+              <a href="../index.html">Back</a>
+          </button>
           </div>
           <div class="btn-group">
             <button class="btn btn-outline-secondary" id="login">
@@ -228,15 +248,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/carousel.js"></script>
-  <script type="text/javascript" src="../js/gobackbtn.js"></script>
-
-</body>
-
-</html>
-pt src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/public/js/carousel.js"></script>
-
+  
 </body>
 
 </html>
