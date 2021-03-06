@@ -86,14 +86,16 @@
 
                 <div class="p-4 flex-1 flex flex-col">
                     
-                    <div class="mb-4 text-grey-darker text-sm flex-1">
-
+                    <form class="mb-4 text-grey-darker text-sm flex-1 login">
                         <div>
                             <p>Email:
-                                <input type="email" name="" id="">
+                                <!-- <input type="email" name="" id=""> -->
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="email-input" placeholder="Email">
                             </p>
                             <p>Password:
-                                <input type="password" name="" id="">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="password-input" placeholder="Password">
                             </p>
                         </div>
 
@@ -103,7 +105,7 @@
                             <a href="">forgot my password?</a>
                         </p>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
-                    </div>
+                    </form>
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-outline-secondary">
