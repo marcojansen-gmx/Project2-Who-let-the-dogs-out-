@@ -17,44 +17,43 @@ module.exports = function (app) {
         try {
             const t = await db.sequelize.transaction()
             try {
-    
+
                 const newUser = await db.User.create({
                     email: req.body.email,
                     password: req.body.password,
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     postcode: req.body.postcode,
-                    username: req.body.username,
                 },
-                { transaction: t });
-        
-        
+                    { transaction: t });
+                console.log(newUser);
+
                 const newDog = await db.Dog.create({
-                            breed: req.body.breed,
-                            dogName: req.body.dogName,
-                            age: req.body.age,
-                            sex: req.body.sex,
-                            desexed: req.body.desexed,
-                            allergies: req.body.allergies,
-                            childfriendly: req.body.childfriendly,
-                            userText: req.body.userText,
-                            dogImage: req.body.dogImage,
-                            user_id: newUser.id,
+                    breed: req.body.breed,
+                    dogName: req.body.dogName,
+                    age: req.body.age,
+                    sex: req.body.sex,
+                    desexed: req.body.desexed,
+                    allergies: req.body.allergies,
+                    childfriendly: req.body.childfriendly,
+                    userText: req.body.userText,
+                    // dogImage: req.body.dogImage,
+                    user_id: newUser.id,
                 },
-                { transaction: t });
-        
-                        await t.commit();
-                        console.log('this is the req.body --->', req.body);
-                        res.redirect(307, "/api/login");
-                        
-            } catch(err1) {
+                    { transaction: t });
+
+                await t.commit();
+                console.log(newDog);
+                res.redirect(307, "/api/login");
+
+            } catch (err1) {
                 await t.rollback();
                 console.log('this is the error1 --->', err1);
                 res.status(500).json(err1);
 
             }
-        } catch(err2) {
-          console.log('this is the error2 --->', err2);
+        } catch (err2) {
+            console.log('this is the error2 --->', err2);
             res.status(500).json(err2);
         }
     });
