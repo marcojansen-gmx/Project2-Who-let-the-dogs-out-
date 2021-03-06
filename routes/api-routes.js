@@ -44,7 +44,7 @@ module.exports = function (app) {
                 { transaction: t });
         
                         await t.commit();
-    
+                        console.log('this is the req.body --->', req.body);
                         res.redirect(307, "/api/login");
                         
             } catch(err1) {
@@ -57,37 +57,6 @@ module.exports = function (app) {
           console.log('this is the error2 --->', err2);
             res.status(500).json(err2);
         }
-        
-
-
-
-            // .then((User) => {
-            //     console.log('USER----> ', User)
-            //     return db.Dog.create({
-            //         breed: req.body.breed,
-            //         dogName: req.body.dogName,
-            //         age: req.body.age,
-            //         sex: req.body.sex,
-            //         desexed: req.body.desexed,
-            //         allergies: req.body.allergies,
-            //         childfriendly: req.body.childfriendly,
-            //         userText: req.body.userText,
-            //         dogImage: req.body.dogImage,
-
-            //     })
-            //         // .then((dog) => {
-            //         //     //update user and set the dog id on it)
-            //         //     console.log('DOG ---> ', dog)
-            //         // })
-            // })
-            // .then(() => {
-            //     res.end();
-            //     //res.redirect(307, "/login");
-            // })
-            // .catch(err => {
-            //     console.log('this is the error --->', err);
-            //     res.status(500).json(err);
-            // });
     });
 
     // Route for logging user out
