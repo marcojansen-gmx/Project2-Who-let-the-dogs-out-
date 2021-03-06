@@ -26,7 +26,8 @@ module.exports = function (app) {
                     postcode: req.body.postcode,
                 },
                     { transaction: t });
-                console.log(newUser);
+
+                    console.log(newUser);
 
                 const newDog = await db.Dog.create({
                     breed: req.body.breed,
