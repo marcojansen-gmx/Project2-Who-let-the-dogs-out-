@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/playdatecard.css" />
   <link rel="stylesheet" href="../css/swipecard.css" />
-  <link rel="stylesheet" href="../css/form.css" />
+  <!-- <link rel="stylesheet" href="../css/form.css" /> -->
 
 
 </head>
@@ -91,7 +91,7 @@
 
             <!-- Text Content -->
             <div class="p-4 flex-1 flex flex-col">
-              
+
               <div class="mb-4 text-grey-darker text-sm flex-1">
 
                 <form class="signup">
@@ -111,74 +111,94 @@
                   <div class="form-group">
                     <label for="postCode">Post Code</label>
                     <input type="postCode" class="form-control" id="postCode" aria-describedby="#"
-                      placeholder="Please enter your Posdcode">
+                      placeholder="Please enter your Postcode">
                   </div>
                   <div class="input-group">
                     <span class="input-group-text">First and last name</span>
-                    <input type="text" aria-label="First name" class="form-control" placeholder="First Name">
-                    <input type="text" aria-label="Last name" class="form-control" placeholder="Last Name">
+                    <input type="text" aria-label="First name" class="form-control" id="firstNameInput"
+                      placeholder="First Name">
+                    <input type="text" aria-label="Last name" class="form-control" id="lastNameInput"
+                      placeholder="Last Name">
                   </div>
                   <!-- Dog Information -->
                   <div>
                     <h3 class="mb-4 text-2xl">Your Pooches Information</h3>
-                  <p>Please enter here your Information.</p>
+                    <p>Please enter here your Information.</p>
                   </div>
-                  
+
 
                   <span class="input-group-text">Fury Friends Name</span>
-                  <input type="text" aria-label="Name" class="form-control" placeholder="Name">
+                  <input type="text" aria-label="Name" class="form-control" id="dogNameInput" placeholder="Name">
                   <span class="input-group-text">Age</span>
-                  <input type="text" aria-label="Age" class="form-control" placeholder="Age">
+                  <input type="text" aria-label="Age" class="form-control" id="dogAgeInput" placeholder="Age">
                   <span class="input-group-text">Breed</span>
-                  <input type="text" aria-label="Breed" class="form-control" placeholder="Breed">
-                  <span class="input-group-text">Sex</span>
+                  <input type="text" aria-label="Breed" class="form-control" id="dogBreedInput" placeholder="Breed">
+
                   <div>
                     <span>
-                    <p>Is your dog desexed?:</p>
-                    <input type="radio" id="desexedYes" name="desexed" value="0">
-                    <label for="desexedYes">Yes</label>
-                    <input type="radio" id="desexedNo" name="desexed" value="1">
-                    <label for="desexedNo">No</label>
-                  </span>
+                      <p>What is your dog's sex?</p>
+                      <input type="radio" id="male" name="sex" value="0">
+                      <label for="male">Male</label>
+                      <input type="radio" id="female" name="sex" value="1">
+                      <label for="female">Female</label>
+                    </span>
                   </div>
-                  
+
+                  <div>
+                    <span>
+                      <p>Is your dog desexed?:</p>
+                      <input type="radio" id="desexedYes" name="desexed" value="0">
+                      <label for="desexedYes">Yes</label>
+                      <input type="radio" id="desexedNo" name="desexed" value="1">
+                      <label for="desexedNo">No</label>
+                    </span>
+                  </div>
+
+                  <div>
+                    <span>
+                      <p>Is your dog desexed?:</p>
+                      <input type="radio" id="childFriendlyYes" name="childFriendly" value="0">
+                      <label for="childFriendlyYes">Yes</label>
+                      <input type="radio" id="childFriendlyNo" name="childFriendly" value="1">
+                      <label for="childFriendlyNo">No</label>
+                    </span>
+                  </div>
+
+                  <!-- <div>
+                    <span>
+                      <p>Child Friendly</p>
+                      <input type="radio" id="childFriendlyYes" name="childFriendly" value="0">
+                      <label for="childFriendlyYes">Yes</label>
+                      <input type="radio" id="childFriendlyNo" name="childFriendly" value="1">
+                      <label for="childFriendlyNo">No</label>
+                    </span>
+                  </div> -->
 
                   <span class="input-group-text">Allergies</span>
-                  <input type="text" aria-label="Allergies" class="form-control" placeholder="Allergies">
-                  <div>
-                    <span>
-                    <p>Child Friendly</p>
-                    <input type="radio" id="childFriendlyYes" name="desexed" value="0">
-                    <label for="desexedYes">Yes</label>
-                    <input type="radio" id="childFriendlyNo" name="desexed" value="1">
-                    <label for="desexedNo">No</label>
-                  </span>
-                  </div>
-                  
-
-
-
-                  <!-- Photo of Your Dog via file upload -->
+                  <input type="text" aria-label="Allergies" class="form-control" id="dogAllergiesInput"
+                    placeholder="Allergies">
+          
+                  <!-- Photo of Your Dog via file upload
                   <div class="form-group">
                     <div>
                       <form action="/upload" method="post" enctype="multipart/form-data">
                         <input type="file" accept="image/*" name="photo">
-                        <input type="submit" value="upload">
                       </form>
                     </div>
-                    
-                  </div>
 
+                  </div> -->
+
+                  <input type="file" accept="image/*" name="photo">
 
                   <!-- Description of the dog -->
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Describe Your Dog</span>
                     </div>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" id="dogDescriptionInput" aria-label="With textarea"></textarea>
                   </div>
                   <div>
-                     <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
                   </div>
                 </form>
                 <div>
@@ -239,39 +259,40 @@
             </div>
           </div>
         </div>
-        </div>
-
-
-        <!--------------------------------- End JoinThePACK ---------------------------------------------------------->
-
-
-        <!-- Footer -->
-        <div class="container">
-          <footer class="center">
-            <div class="footer-copyright">
-              <div class="container text-center" id="footer">
-                <span> © 2021 Copyright</span>
-                <br>
-                <span> Who let the dogs out?
-                  <link rel="stylesheet" type="text/css"
-                    href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-                  Made with <i class="icon ion-heart"></i> By
-                  <a href="https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-.git" target="blank"></a>
-                  <br>
-                  Marco, Adrian, Beau & Nadja
-                </span>
-              </div>
-            </div>
-          </footer>
-        </div>
       </div>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
-        integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!--------------------------------- End JoinThePACK ---------------------------------------------------------->
+
+
+      <!-- Footer -->
+      <div class="container">
+        <footer class="center">
+          <div class="footer-copyright">
+            <div class="container text-center" id="footer">
+              <span> © 2021 Copyright</span>
+              <br>
+              <span> Who let the dogs out?
+                <link rel="stylesheet" type="text/css"
+                  href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+                Made with <i class="icon ion-heart"></i> By
+                <a href="https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-.git" target="blank"></a>
+                <br>
+                Marco, Adrian, Beau & Nadja
+              </span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+      integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/signup.js"></script>
 
 </body>
 
