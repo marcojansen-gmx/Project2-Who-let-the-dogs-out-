@@ -1,23 +1,23 @@
 
 $(document).ready(function () {
   // Getting references to our form and input
-  var signUpForm = $("form.signup");
-  var firstNameInput = $("input#firstNameInput");
-  var lastNameInput = $("input#lastNameInput");
-  var postCodeInput = $("input#postCode");
-  var emailInput = $("input#exampleInputEmail1");
-  var passwordInput = $("input#exampleInputPassword1");
-  var dogNameInput = $("input#dogNameInput");
-  var dogAgeInput = $("input#dogAgeInput");
-  var dogBreedInput = $("#dogBreedInput");
-  // var dogSexInput = $("input#dogSexInput");
-  // var dogDesexedInput = $("input#dogDesexedInput");
-  var dogAllergiesInput = $("input#dogAllergiesInput");
-  // var dogChildFriendlyInput = $("input#childFriendlyInput");
-  // var dogPhotoInput = $("input#dogPhotoInput");
-  var dogDescriptionInput = $("#dogDescriptionInput")
+  const signUpForm = $("form.signup");
+  const firstNameInput = $("input#firstNameInput");
+  const lastNameInput = $("input#lastNameInput");
+  const postCodeInput = $("input#postCode");
+  const emailInput = $("input#exampleInputEmail1");
+  const passwordInput = $("input#exampleInputPassword1");
+  const dogNameInput = $("input#dogNameInput");
+  const dogAgeInput = $("input#dogAgeInput");
+  const dogBreedInput = $("#dogBreedInput");
+  // const dogSexInput = $("input#dogSexInput");
+  // const dogDesexedInput = $("input#dogDesexedInput");
+  const dogAllergiesInput = $("input#dogAllergiesInput");
+  // const dogChildFriendlyInput = $("input#childFriendlyInput");
+  // const dogPhotoInput = $("input#dogPhotoInput");
+  const dogDescriptionInput = $("#dogDescriptionInput")
 
-  var file;
+  let file;
 
   // When the signup button is clicked, we validate the email and password are not blank
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
   signUpForm.on("submit", function (event) {
     event.preventDefault();
-    var userData = {
+    const userData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
       postcode: postCodeInput.val().trim(),
@@ -53,7 +53,7 @@ $(document).ready(function () {
     // }
 
     $.post("/api/signup", userData).then(function (data) {
-      window.location.replace("/login");
+      window.location.replace("/html/login.html");
       // If there's an error, handle it by throwing up a bootstrap alert
     })
       .catch(handleLoginErr);
