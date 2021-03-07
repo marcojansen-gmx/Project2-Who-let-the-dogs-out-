@@ -38,38 +38,40 @@ module.exports = function (app) {
         },
         { transaction: t });
 
-        await t.commit();
-        console.log(newDog);
-        res.redirect(307, '/api/login');
-      } catch (err1) {
-        await t.rollback();
-        console.log('this is the error1 --->', err1);
-        res.status(500).json(err1);
-      }
-    } catch (err2) {
-      console.log('this is the error2 --->', err2);
-      res.status(500).json(err2);
-    }
-  });
+                await t.commit();
+                console.log(newDog);
+                res.redirect(307, "/api/login");
 
-  // Route for logging user out
-  app.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-  });
+            } catch (err1) {
+                await t.rollback();
+                console.log('this is the error1 --->', err1);
+                res.status(500).json(err1);
 
-  // Route for getting some data about our user to be used client side
-  app.get('/api/user_data', (req, res) => {
-    if (!req.User) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.User.email,
-        id: req.User.id
-      });
-    }
-  });
+            }
+        } catch (err2) {
+            console.log('this is the error2 --->', err2);
+            res.status(500).json(err2);
+        }
+    });
+
+    // Route for logging user out
+    app.get("/logout", (req, res) => {
+        req.logout();
+        res.redirect("/");
+    });
+
+    // Route for getting some data about our user to be used client side
+    app.get("/api/user_data", (req, res) => {
+        if (!req.User) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            res.json({
+                email: req.User.email,
+                id: req.User.id
+            });
+        }
+    });
 };

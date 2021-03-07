@@ -5,31 +5,33 @@ const path = require('path');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 const unauthorized = require('../config/middleware/unauthorized');
 
-
 module.exports = function (app) {
-  //   app.get('/', (req, res) => {
-  //     // If the User already has an account send them to the members page
-  //     if (req.User) {
-  //       res.redirect('/members');
-  //     }
-  //     res.sendFile(path.join(__dirname, '../public/signup.html'));
-  //   });
-
-  app.get('/signup', unauthorized, (req, res) => {
-    res.render('signup');
+  
+  app.get("/", unauthorized, (req, res) => {
+    res.render("index");
   });
 
-  app.get('/login', unauthorized, (req, res) => {
-    res.render('login');
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../", "public", "index.html"));
   });
 
-  app.get('/', unauthorized, (req, res) => {
-    res.render('index');
+  app.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../", "public", "html", "signup.html"));
   });
+
+  app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "../", "public", "html", "login.html"));
+  });
+
+  // to be used for handlebars
+  // app.get("/playdate", isAuthenticated, (req, res) => {
+  //   res.render("playdate");
+  // });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get('/playdates', isAuthenticated, (req, res) => {
-    res.render('playdates');
+
+  app.get("/playdates", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../", "public", "html", "playdate.html"));
   });
 };
