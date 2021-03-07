@@ -1,47 +1,42 @@
 // Requiring our models and passport as we've configured it
-const db = require("../models");
-const passport = require("../config/passport");
-const unauthorized = require("../config/middleware/unauthorized");
+const db = require('../models');
+const passport = require('../config/passport');
+const unauthorized = require('../config/middleware/unauthorized');
 
 module.exports = function (app) {
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {
-        console.log(req.User);
-        // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-            email: req.User.email,
-            id: req.User.id
-        });
+  app.post('/api/login', passport.authenticate('local'), (req, res) => {
+    res.json({
+      email: req.body.email,
+      id: req.body.id
     });
-    app.post("/api/signup", unauthorized, async (req, res) => {
+  });
+  app.post('/api/signup', unauthorized, async (req, res) => {
+    try {
+      const t = await db.sequelize.transaction();
+      try {
+        const newUser = await db.User.create({
+          email: req.body.email,
+          password: req.body.password,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          postcode: req.body.postcode
+        },
+        { transaction: t });
+        console.log(newUser);
 
-        try {
-            const t = await db.sequelize.transaction()
-            try {
-
-                const newUser = await db.User.create({
-                    email: req.body.email,
-                    password: req.body.password,
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    postcode: req.body.postcode,
-                },
-                    { transaction: t });
-
-                    console.log(newUser);
-
-                const newDog = await db.Dog.create({
-                    breed: req.body.breed,
-                    dogName: req.body.dogName,
-                    age: req.body.age,
-                    sex: req.body.sex,
-                    desexed: req.body.desexed,
-                    allergies: req.body.allergies,
-                    childfriendly: req.body.childfriendly,
-                    userText: req.body.userText,
-                    // dogImage: req.body.dogImage,
-                    user_id: newUser.id,
-                },
-                    { transaction: t });
+        const newDog = await db.Dog.create({
+          breed: req.body.breed,
+          dogName: req.body.dogName,
+          age: req.body.age,
+          sex: req.body.sex,
+          desexed: req.body.desexed,
+          allergies: req.body.allergies,
+          childfriendly: req.body.childfriendly,
+          userText: req.body.userText,
+          // dogImage: req.body.dogImage,
+          user_id: newUser.id
+        },
+        { transaction: t });
 
                 await t.commit();
                 console.log(newDog);
