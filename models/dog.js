@@ -12,8 +12,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER
     },
     sex: {
-      type: Sequelize.STRING,
-      allowNull: false
+      type: Sequelize.BOOLEAN
     },
     desexed: {
       type: Sequelize.BOOLEAN
@@ -30,8 +29,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     dogImage: {
-      type: Sequelize.BLOB,
-      // allowNull: false
+      type: Sequelize.BLOB('long')
     }
   });
   Dog.associate = (db) => {

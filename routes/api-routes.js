@@ -1,7 +1,12 @@
 // Requiring our models and passport as we've configured it
+const path = require("path");
 const db = require('../models');
 const passport = require('../config/passport');
-const unauthorized = require('../config/middleware/unauthorized');
+// const unauthorized = require('../config/middleware/unauthorized');
+const multer = require('multer');
+// const upload = multer({ dest: path.join(__dirname, "../public/data") });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 module.exports = function (app) {
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
@@ -10,7 +15,9 @@ module.exports = function (app) {
       id: req.user.id
     });
   });
-  app.post('/api/signup', unauthorized, async (req, res) => {
+  app.post('/api/signup', upload.single('dogImage'), async (req, res) => {
+    // console.log(req.file, req.body);
+
     try {
       const t = await db.sequelize.transaction();
       try {
@@ -22,7 +29,6 @@ module.exports = function (app) {
           postcode: req.body.postcode
         },
         { transaction: t });
-        console.log(newUser);
 
         const newDog = await db.Dog.create({
           breed: req.body.breed,
@@ -31,47 +37,44 @@ module.exports = function (app) {
           sex: req.body.sex,
           desexed: req.body.desexed,
           allergies: req.body.allergies,
-          childfriendly: req.body.childfriendly,
           userText: req.body.userText,
-          // dogImage: req.body.dogImage,
+          dogImage: req.file.buffer,
           user_id: newUser.id
         },
         { transaction: t });
 
-                await t.commit();
-                console.log(newDog);
-                res.redirect(307, "/api/login");
+        await t.commit();
 
-            } catch (err1) {
-                await t.rollback();
-                console.log('this is the error1 --->', err1);
-                res.status(500).json(err1);
+        res.end();
+      } catch (err1) {
+        await t.rollback();
+        console.log('this is the error1 --->', err1);
+        res.status(500).json(err1);
+      }
+    } catch (err2) {
+      console.log('this is the error2 --->', err2);
+      res.status(500).json(err2);
+    }
+  });
 
-            }
-        } catch (err2) {
-            console.log('this is the error2 --->', err2);
-            res.status(500).json(err2);
-        }
-    });
+  // Route for logging user out
+  app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+  });
 
-    // Route for logging user out
-    app.get("/logout", (req, res) => {
-        req.logout();
-        res.redirect("/");
-    });
-
-    // Route for getting some data about our user to be used client side
-    app.get("/api/user_data", (req, res) => {
-        if (!req.User) {
-            // The user is not logged in, send back an empty object
-            res.json({});
-        } else {
-            // Otherwise send back the user's email and id
-            // Sending back a password, even a hashed password, isn't a good idea
-            res.json({
-                email: req.User.email,
-                id: req.User.id
-            });
-        }
-    });
+  // Route for getting some data about our user to be used client side
+  app.get('/api/user_data', (req, res) => {
+    if (!req.User) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.User.email,
+        id: req.User.id
+      });
+    }
+  });
 };
