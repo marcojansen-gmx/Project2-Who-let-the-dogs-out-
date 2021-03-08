@@ -8,7 +8,9 @@ const unauthorized = require('../config/middleware/unauthorized');
 module.exports = function (app) {
   
   app.get("/", unauthorized, (req, res) => {
-    res.render("index");
+    res.render("index", {
+      showNav: false
+    });
   });
 
   app.get("/", (req, res) => {
@@ -32,6 +34,10 @@ module.exports = function (app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
 
   app.get("/playdates", isAuthenticated, (req, res) => {
+
+s
+  // <script type="text/javascript" src="/js/swipe.js"></script>
+
     res.sendFile(path.join(__dirname, "../", "public", "html", "playdate.html"));
   });
 };
