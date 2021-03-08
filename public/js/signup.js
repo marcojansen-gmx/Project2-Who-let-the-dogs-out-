@@ -52,8 +52,10 @@ $(document).ready(function () {
     //   return;
     // }
 
+    console.log({userData});
+
     $.post("/api/signup", userData).then(function (data) {
-      window.location.replace("/login");
+      // window.location.replace("/login");
       // If there's an error, handle it by throwing up a bootstrap alert
     })
       .catch(handleLoginErr);

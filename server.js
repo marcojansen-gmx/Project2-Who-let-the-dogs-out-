@@ -2,6 +2,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 
+const session = require("express-session");
+
+
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 8081;
@@ -9,7 +12,7 @@ const PORT = process.env.PORT || 8081;
 const htmlRouter = require('./routes/html-routes.js');
 const apiRouter = require('./routes/api-routes.js');
 
-const passport = require('passport');
+const passport = require('./config/passport');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +27,7 @@ const db = require('./models');
 // Static directory
 app.use(express.static('public'));
 
+app.use(session({ secret: 'anything' }));
 app.use(passport.initialize());
 app.use(passport.session());
 

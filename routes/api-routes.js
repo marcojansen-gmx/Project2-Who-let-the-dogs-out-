@@ -6,8 +6,8 @@ const unauthorized = require('../config/middleware/unauthorized');
 module.exports = function (app) {
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
     res.json({
-      email: req.body.email,
-      id: req.body.id
+      email: req.user.email,
+      id: req.user.id
     });
   });
   app.post('/api/signup', unauthorized, async (req, res) => {

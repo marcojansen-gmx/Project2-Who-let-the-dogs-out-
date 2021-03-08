@@ -19,8 +19,8 @@ $(document).ready(function() {
 
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
-    emailInput.val('');
-    passwordInput.val('');
+    // emailInput.val('');
+    // passwordInput.val('');
   });
 
   // loginUser does a post to our 'api/login' route and if successful, redirects us the the members page
@@ -29,8 +29,12 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function() {
-        window.location.replace('./playdate.html');
+      .then(function(res) {
+        
+        console.log({res});
+        // window.location.replace('/playdates');
+
+
         // If there's an error, log the error
       })
       .catch(function(err) {

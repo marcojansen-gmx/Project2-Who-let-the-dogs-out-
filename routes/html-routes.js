@@ -14,11 +14,19 @@ module.exports = function (app) {
   
 
   app.get("/signup", (req, res) => {
-    res.render("signup");
+    res.render("signup", {
+      scripts: [
+        "/js/signup.js"
+      ]
+    });
   });
 
   app.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", {
+      scripts: [
+        "/js/login.js"
+      ]
+    });
   });
 
   // to be used for handlebars
