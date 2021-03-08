@@ -38,8 +38,8 @@ module.exports = function (app) {
           desexed: req.body.desexed,
           allergies: req.body.allergies,
           userText: req.body.userText,
-          dogImage: req.file.buffer,
-          user_id: newUser.id
+          dogImage: req.file ? req.file.buffer : null,
+          UserId: newUser.id
         },
         { transaction: t });
 
