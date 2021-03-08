@@ -22,7 +22,9 @@ module.exports = function (app) {
   });
 
   app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "public", "html", "login.html"));
+    res.render("login", {
+      showNav: false
+    });
   });
 
   // to be used for handlebars
