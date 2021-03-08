@@ -8,23 +8,17 @@ const unauthorized = require('../config/middleware/unauthorized');
 module.exports = function (app) {
   
   app.get("/", unauthorized, (req, res) => {
-    res.render("index", {
-      showNav: false
-    });
+    res.render("index");
   });
 
   
 
   app.get("/signup", (req, res) => {
-    res.render("signup", {
-      showNav: false
-    });
+    res.render("signup");
   });
 
   app.get("/login", (req, res) => {
-    res.render("login", {
-      showNav: false
-    });
+    res.render("login");
   });
 
   // to be used for handlebars
@@ -37,9 +31,13 @@ module.exports = function (app) {
 
   app.get("/playdates", isAuthenticated, (req, res) => {
 
-s
-  // <script type="text/javascript" src="/js/swipe.js"></script>
+    res.render("playdate", {
+      scripts: [
+        "/js/hammer.js",
+        "/js/swipe.js",
 
-    res.sendFile(path.join(__dirname, "../", "public", "html", "playdate.html"));
+      ]
+    });
+
   });
 };
