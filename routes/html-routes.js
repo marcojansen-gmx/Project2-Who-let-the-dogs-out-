@@ -2,6 +2,8 @@
 const { response } = require("express");
 const path = require("path");
 
+const db = require("./../models");
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const unauthorized = require("../config/middleware/unauthorized");
@@ -13,16 +15,22 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "public", "index.html"));
-  });
+  
 
   app.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "public", "html", "signup.html"));
+    res.render("signup", {
+      scripts: [
+        "/js/signup.js"
+      ]
+    });
   });
 
   app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "public", "html", "login.html"));
+    res.render("login", {
+      scripts: [
+        "/js/login.js"
+      ]
+    });
   });
 
   // to be used for handlebars
@@ -38,7 +46,30 @@ module.exports = function (app) {
   
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  //   app.get("/playdate", isAuthenticated, (req, res) => {
-  //     res.sendFile(path.join(__dirname, "../", "public", "html", "playdate.html"));
-  //   });
+
+  app.get("/playdates", isAuthenticated, async (req, res) => {
+
+    const dogs = await db.Dog.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    })
+
+    const dog = dogs[0].dataValues || [];
+
+    console.log(dogs);
+
+    res.render("playdate", {
+      user: req.user,
+      dog,
+
+      scripts: [
+        "/js/hammer.js",
+        "/js/swipe.js",
+
+      ]
+    });
+
+  });
 };
+

@@ -29,7 +29,8 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     dogImage: {
-      type: Sequelize.BLOB('long')
+      // type: Sequelize.BLOB('long')
+      type: Sequelize.STRING
     }
   });
   Dog.associate = (db) => {
