@@ -5,8 +5,8 @@ const passport = require('../config/passport');
 // const unauthorized = require('../config/middleware/unauthorized');
 const multer = require('multer');
 // const upload = multer({ dest: path.join(__dirname, "../public/data") });
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+// const storage = multer.memoryStorage();
+const upload = multer({  dest: path.join(__dirname, "../public/uploads/")});
 
 module.exports = function (app) {
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
@@ -18,6 +18,8 @@ module.exports = function (app) {
   app.post('/api/signup', upload.single('dogImage'), async (req, res) => {
     // console.log(req.file, req.body);
 
+    console.log(req.file.filename);
+
     try {
       const t = await db.sequelize.transaction();
       try {
@@ -25,7 +27,7 @@ module.exports = function (app) {
           email: req.body.email,
           password: req.body.password,
           firstName: req.body.firstName,
-          lastName: req.body.lastName,
+          lastName: req.body.lastName,//Building there that much less go to word one all
           postcode: req.body.postcode
         },
         { transaction: t });
@@ -38,8 +40,8 @@ module.exports = function (app) {
           desexed: req.body.desexed,
           allergies: req.body.allergies,
           userText: req.body.userText,
-          dogImage: req.file.buffer,
-          user_id: newUser.id
+          dogImage: "/uploads/" + req.file.filename,
+          UserId: newUser.id
         },
         { transaction: t });
 

@@ -21,7 +21,7 @@ $(document).ready(function () {
 
   // When the signup button is clicked, we validate the email and password are not blank
 
-  $('input[type='file']').change(function (e) {
+  $("input[type='file']").change(function (e) {
     file = e.target.files[0];
   });
 
@@ -36,8 +36,8 @@ $(document).ready(function () {
       dogName: dogNameInput.val().trim(),
       age: dogAgeInput.val().trim(),
       breed: dogBreedInput.val().trim(),
-      sex: $('input[name='sex']:checked').val(),
-      desexed: $('input[name='desexed']:checked').val(),
+      sex: $("input[name='sex']:checked").val(),
+      desexed: $("input[name='desexed']:checked").val(),
       allergies: dogAllergiesInput.val().trim(),
       // childFriendly: $('input[name='childFriendly']:checked').val(),
       // dogImage: dogPhotoInput.val().trim(),
@@ -55,13 +55,16 @@ $(document).ready(function () {
     $.ajax({
       url: '/api/signup',
       data: formData,
+      
       cache: false,
       contentType: false,
       processData: false,
       method: 'POST',
       type: 'POST', // For jQuery < 1.9
-      success: function () {
-        window.location.replace('/html/login.html');
+      success: function (res) {
+        console.log({res});
+
+        // window.location.replace('/login');
       }
     });
   });

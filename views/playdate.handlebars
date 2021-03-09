@@ -28,22 +28,20 @@
 
             <!-- Picture of dog -->
             <div class="play-card-text">
-              <img id="dogimage" class="img-dog" src="/pic/anoir-chafik-2_3c4dIFYFU-unsplash_750x400_web.jpg"
+              <img id="dogimage" class="img-dog" src="{{ dog.dogImage }}"
                 alt="Picture of the dogs">
 
               <div class="title-total">
-                <div class="title">Dogs Qwner Name</div>
+                <div class="title"> {{ user.firstName }}  {{ user.lastName}} </div>
                 <h2 id="dogname">Dogy Name</h2>
 
-                <div class="desc" id="breed">Breed: </div>
-                <div class="desc" id="age">Age: </div>
-                <div class="desc" id="sex">Sex: </div>
-                <div class="desc" id="desexed">Desexed:</div>
-                <div class="desc" id="allergies">Allergies: </div>
-                <div class="desc" id="child-friendly">Child-friendly: </div>
-                <div class="desc kursive"> Small discription: Morgan has collected ants since they were six years
-                  old and now has many dozen
-                  ants but none in their pants.</div>
+                <div class="desc" id="breed">Breed: {{dog.breed}}</div>
+                <div class="desc" id="age">Age: {{dog.age}}</div>
+                <div class="desc" id="sex">Sex: {{dog.sex}}</div>
+                <div class="desc" id="desexed">Desexed: {{dog.desexed}}</div>
+                <div class="desc" id="allergies">Allergies: {{dog.allergies}}</div>
+                <div class="desc" id="child-friendly">Child-friendly: {{dog.childFriendly}}</div>
+                <div class="desc kursive"> Small discription: {{dog.userText}}</div>
 
               </div>
             </div>

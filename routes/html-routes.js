@@ -41,23 +41,19 @@ module.exports = function (app) {
 
   app.get("/playdates", isAuthenticated, async (req, res) => {
 
-    const user = await db.User.findOne({
+    const dogs = await db.Dog.findAll({
       where: {
-        id: req.user.id
-      },
-      include: db.Dog
-    });
+        UserId: req.user.id
+      }
+    })
 
+    const dog = dogs[0].dataValues || [];
 
-    console.log({user});
-
-    console.log(user.dog);
+    console.log(dogs);
 
     res.render("playdate", {
-
-
-
-
+      user: req.user,
+      dog,
 
       scripts: [
         "/js/hammer.js",
