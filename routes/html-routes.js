@@ -2,7 +2,7 @@
 const { response } = require("express");
 const path = require("path");
 
-const db = require("./../models");
+// const db = require("./../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -15,7 +15,7 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  
+
 
   app.get("/signup", (req, res) => {
     res.render("signup", {
@@ -43,7 +43,7 @@ module.exports = function (app) {
       res.json(dbDog);
     });
   });
-  
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
 
@@ -55,13 +55,13 @@ module.exports = function (app) {
       }
     })
 
-    const dog = dogs[0].dataValues || [];
+    const dog = dogs[0] || [];
 
     console.log(dogs);
 
     res.render("playdate", {
       user: req.user,
-      dog,
+      dog: dog.dataValues,
 
       scripts: [
         "/js/hammer.js",

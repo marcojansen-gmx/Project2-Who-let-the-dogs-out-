@@ -32,7 +32,7 @@ $(document).ready(function() {
       .then(function(res) {
         
         console.log({res});
-        // window.location.replace('/playdates');
+        window.location = '/playdates';
 
 
         // If there's an error, log the error
