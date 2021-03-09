@@ -40,11 +40,7 @@ module.exports = function (app) {
           desexed: req.body.desexed,
           allergies: req.body.allergies,
           userText: req.body.userText,
-<<<<<<< HEAD
-          dogImage: req.file ? req.file.buffer : null,
-=======
           dogImage: "/uploads/" + req.file.filename,
->>>>>>> bb0ca76c45a96e86ad6f82a18ff58f5685403d4b
           UserId: newUser.id
         },
         { transaction: t });
