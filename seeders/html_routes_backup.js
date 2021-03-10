@@ -1,7 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 const { response } = require("express");
 const path = require("path");
-const { Op } = require("sequelize");
 
 // const db = require("./../models");
 
@@ -52,21 +51,26 @@ module.exports = function (app) {
 
     const dogs = await db.Dog.findAll({
       where: {
-        UserId: {
-          [Op.ne]: req.user.id
-        }
+        UserId: req.user.id
       }
-    })
+    }, { include: db.User });
 
-    const dog = dogs[Math.floor(Math.random() * dogs.length)] || [];
 
+
+    let randomDog = {};
+    console.log("empty" + randomDog);
+    if (dogs.length > 0) {
+      const randomIndex = Math.floor(Math.random() * dogs.length);
+      randomDog = dogs[randomIndex].dataValues;
+      console.log("dogLuca" + randomDog);
+    }
 
 
     console.log(dogs);
 
     res.render("playdate", {
-      user: req.user,
-      dog: dog.dataValues,
+      user: randomDog.User,
+      dog: randomDog,
 
       scripts: [
         "/js/hammer.js",
