@@ -1,9 +1,9 @@
 // ADRIAN
 const express = require('express');
 const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
 
 const session = require("express-session");
-
 
 // Sets up the Express App
 const app = express();

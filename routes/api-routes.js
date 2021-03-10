@@ -6,7 +6,9 @@ const passport = require('../config/passport');
 const multer = require('multer');
 // const upload = multer({ dest: path.join(__dirname, "../public/data") });
 // const storage = multer.memoryStorage();
-const upload = multer({  dest: path.join(__dirname, "../public/uploads/")});
+const upload = multer({ dest: path.join(__dirname, "../public/uploads/") });
+
+
 
 module.exports = function (app) {
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
@@ -30,7 +32,7 @@ module.exports = function (app) {
           lastName: req.body.lastName,//Building there that much less go to word one all
           postcode: req.body.postcode
         },
-        { transaction: t });
+          { transaction: t });
 
         const newDog = await db.Dog.create({
           breed: req.body.breed,
@@ -43,7 +45,7 @@ module.exports = function (app) {
           dogImage: "/uploads/" + req.file.filename,
           UserId: newUser.id
         },
-        { transaction: t });
+          { transaction: t });
 
         await t.commit();
 
@@ -74,9 +76,62 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        name: req.User.name,
         email: req.User.email,
         id: req.User.id
       });
     }
   });
+
+  app.post('/send', (req, res) => {
+    const output = `
+      <img src="./logo/dog_logo.svg" alt="Who let the dogs out? Logo">
+      <p>You have a new playdate request</p>
+      <h3>Contact Details</h3>
+      <ul>  
+        <li>Name: ${req.body.name}</li>
+        <li>Email: ${req.body.email}</li>
+        <li>Dog Name: ${req.body.dogName}</li>
+        <li>Dog Breed: ${req.body.age}</li>
+        <li>Dog Name: ${req.body.sex}</li>
+      </ul>
+      <h3>Message</h3>
+      <p>${req.body.message}</p>
+    `;
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: 'mail.saveasigo.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: 'wltdo@saveasigo.com', // generated ethereal user
+        pass: 'wltdo@2021'  // generated ethereal password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    // setup email data with unicode symbols
+    let mailOptions = {
+      from: '"Who Let The Dogs Out Playdate Request" <wltdo@saveasigo.com>', // sender address
+      to: `${req.body.email}`, // list of receivers
+      subject: 'Playdate Request', // Subject line
+      text: 'Hello world?', // plain text body
+      html: output // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+      // res.render('contact', { msg: 'Email has been sent' });
+    });
+  });
+
 };
