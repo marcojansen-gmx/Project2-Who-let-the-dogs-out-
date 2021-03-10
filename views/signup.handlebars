@@ -47,88 +47,150 @@
 
           <div class="mb-4 text-grey-darker text-sm flex-1">
 
-            <form class="signup">
 
-              <!-- Users Info -->
-              <h3 class="mb-4 text-2xl">Your Information</h3>
-              <p>Please enter here your Information.</p>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address(Username)</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                  placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1"
-                  placeholder="Please enter your Password">
-              </div>
-              <div class="form-group">
-                <label for="postCode">Post Code</label>
-                <input type="postCode" class="form-control" id="postCode" aria-describedby="#"
-                  placeholder="Please enter your Postcode">
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">First and last name</span>
-                <input type="text" aria-label="First name" class="form-control" id="firstNameInput"
-                  placeholder="First Name">
-                <input type="text" aria-label="Last name" class="form-control" id="lastNameInput"
-                  placeholder="Last Name">
-              </div>
-
-
-              <div>
-                <h3 class="mb-4 text-2xl">Your Pooches Information</h3>
-                <p>Please enter here your Information.</p>
-              </div>
-
-
-              <span class="input-group-text">Fury Friends Name</span>
-              <input type="text" aria-label="Name" class="form-control" id="dogNameInput" placeholder="Name">
-              <span class="input-group-text">Age</span>
-              <input type="text" aria-label="Age" class="form-control" id="dogAgeInput" placeholder="Age">
-              <span class="input-group-text">Breed</span>
-              <input type="text" aria-label="Breed" class="form-control" id="dogBreedInput" placeholder="Breed">
-
-              <div>
-                <span>
-                  <p>What is your dog's sex?</p>
-                  <input type="radio" id="male" name="sex" value="0">
-                  <label for="male">Male</label>
-                  <input type="radio" id="female" name="sex" value="1">
-                  <label for="female">Female</label>
-                </span>
-              </div>
-
-
-              <span class="input-group-text">Allergies</span>
-              <input type="text" aria-label="Allergies" class="form-control" id="dogAllergiesInput"
-                placeholder="Allergies">
-
-              <!-- Photo of Your Dog via file upload-->
-              <div class="form-group">
-                <div>
-                  <input type="file" accept="image/*" name="photo">
+            <!-- Form for email signup -->
+            <form class="signup text-left">
+              <!-- Owner Information -->
+              <div class="row">
+                <div class="col">
+                  <h3 class="mb-4 text-2xl text-center">I am the dogs parent:</h3>
+                  <p>Please enter here your Information.</p>
                 </div>
-
               </div>
+
+              <!-- Email & Password -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="exampleInputEmail1">Email address(Username)</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1" class="">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Please enter your Password">
+                </div>
+              </div>
+              <!-- Post Code -->
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="postCode">Post Code</label>
+                  <input type="postCode" class="form-control" id="postCode" aria-describedby="#"
+                    placeholder="Please enter your Postcode">
+                </div>
+              </div>
+              <!-- Name & Last name -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="firstNameInput">First Name</label>
+                  <input type="text" aria-label="First name" class="form-control" id="firstNameInput"
+                    placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="lastNameInput">Last Name</label>
+                  <input type="text" aria-label="Last name" class="form-control" id="lastNameInput"
+                    placeholder="Last Name">
+                </div>
+              </div>
+              <!-- Dog Information -->
+              <div class="row">
+                <div class="col">
+                  <h3 class="mb-4 text-2xl text-center">Your Pooches Information:</h3>
+                </div>
+              </div>
+              <!-- Name & Age -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="dogNameInput">Fury Friends Name</label>
+                  <input type="text" aria-label="Name" class="form-control" id="dogNameInput" placeholder="Furys Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="dogAgeInput">Age</label>
+                  <input type="text" aria-label="Age" class="form-control" id="dogAgeInput" placeholder="Age">
+                </div>
+              </div>
+              <!-- Breed -->
+              <div class="form-row">
+                <div class="form-group col">
+                  <label for="dogBreedInput">Breed</label>
+                  <input type="postCode" aria-label="Breed" class="form-control" id="dogBreedInput" placeholder="Breed">
+                </div>
+              </div>
+
+<!-- What Sex -->
+              <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-4 pt-0">What sex is your Furry Friend? :</legend>
+      <div class="col-sm-8">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="male" name="sex" value="0">
+          <label class="form-check-label" for="male">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="female" name="sex" value="1">
+          <label class="form-check-label" for="female">
+            Female
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <!-- Desexed? -->
+              <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-4 pt-0">Has your Furry Friend been desexed? :</legend>
+      <div class="col-sm-8">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="desexedYes" name="desexed" value="0">
+          <label class="form-check-label" for="male">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="desexedNo" name="desexed" value="1">
+          <label class="form-check-label" for="female">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
 
 
 
               <!-- Description of the dog -->
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Describe Your Dog</span>
+              <div class="form-row">
+                <div class="form-group input-group-prepend col">
+                  <label class="input-group-text" for="dogBreedInput">Describe Your Dog</label>
+                  <textarea class="form-control" id="dogDescriptionInput" aria-label="With textarea"
+                    placeholder="Describe Your Furr Frien/Child"></textarea>
                 </div>
-                <textarea class="form-control" id="dogDescriptionInput" aria-label="With textarea"></textarea>
+              </div>
+              <!-- Photo of Your Dog via file upload-->
+              <div class="form-row">
+                <div class="form-group col">
+                  <h6 class="mb-4 text-2xl attention-text">Please uploade a picture of your fury friend/child:</h6>
+                  <input class="btn-light" type="file" accept="image/*" name="photo">
+                </div>
               </div>
 
+
+           
+
+
+            <form class="signup">
+
+              
               <div>
 
                 <div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
-                      <h4 class="mb-4 text-2xl text-left">Disclaimer:</h4>
+                      <h5 class="mb-4 text-2xl text-left">Disclaimer:</h5>
                       <p class="text-left">Who let the dogs out is an app designed to bring dog owners together, so that
                         they
                         can self-organize

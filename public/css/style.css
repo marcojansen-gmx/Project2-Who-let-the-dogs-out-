@@ -87,3 +87,7 @@ footer {
   p {
     margin-bottom: 0.8em;
   }
+
+  .attention-text {
+      color: #c96b30;
+  }
