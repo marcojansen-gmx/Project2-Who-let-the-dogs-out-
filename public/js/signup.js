@@ -62,9 +62,9 @@ $(document).ready(function () {
       method: 'POST',
       type: 'POST', // For jQuery < 1.9
       success: function (res) {
-        console.log({res});
+        // console.log({res});
 
-        // window.location.replace('/login');
+        window.location.replace('/playdates');
       }
     });
   });

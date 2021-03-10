@@ -143,28 +143,32 @@ class Carousel {
       }
 
       if (successful) {
-        // throw swipecard in the chosen direction
-        this.topSwipecard.style.transform =
-                    'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
+      console.log(dirX);
+      // if 
 
-        // wait transition end
-        setTimeout(() => {
-          // remove swiped swipecard
-          this.playdate.removeChild(this.topSwipecard);
-          // add new swipecard
-          this.push();
-          // handle gestures on new top swipecard
-          this.handle();
-        }, 200);
-      } else {
-        // reset swipecards position and size
-        this.topSwipecard.style.transform =
-                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
-        if (this.nextSwipecard) {
-          this.nextSwipecard.style.transform =
-                    'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(0.95)';
-        }
-      }
+    }
+      //   // throw swipecard in the chosen direction
+      //   this.topSwipecard.style.transform =
+      //               'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
+
+      //   // wait transition end
+      //   setTimeout(() => {
+      //     // remove swiped swipecard
+      //     this.playdate.removeChild(this.topSwipecard);
+      //     // add new swipecard
+      //     this.push();
+      //     // handle gestures on new top swipecard
+      //     this.handle();
+      //   }, 200);
+      // } else {
+      //   // reset swipecards position and size
+      //   this.topSwipecard.style.transform =
+      //               'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
+      //   if (this.nextSwipecard) {
+      //     this.nextSwipecard.style.transform =
+      //               'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(0.95)';
+      //   }
+      // }
     }
   }
 
