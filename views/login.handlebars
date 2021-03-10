@@ -1,25 +1,12 @@
 <!-------------------------------- Start Card Home -------------------------------->
 <div id="login-card-wrapper">
-    <!-- Button Group -->
-    <!-- Button Group -->
-    <div class="container text-center">
-        <div class="btn-group">
-            <button class="btn btn-outline-secondary">
-                <a href="/">Home</a>
-            </button>
-        </div>
-        <div class="btn-group">
-            <button class="btn btn-outline-secondary">
-                <a href="/signup">JoinThePACK</a>
-            </button>
-        </div>
-    </div>
+    
 
 
     <!-- Start Main container -->
     <div class="container text-center" id="positionWrapper">
         <div id="login-card" class="container bg-white rounded-lg shadow-lg overflow-hidden">
-            <!-- pictures -->
+            <!-- pictures carousel -->
             <div class="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
                 <div class="flex-1 flex flex-col">
                     <div class="carousel-inner">
@@ -61,37 +48,37 @@
 
             <div class="p-4 flex-1 flex flex-col">
 
-                <form class="mb-4 text-grey-darker text-sm flex-1 login">
-                    <div>
-                        <p>Email:
-                            <!-- <input type="email" name="" id=""> -->
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="email-input" placeholder="Email">
-                        </p>
-                        <p>Password:
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="password-input" placeholder="Password">
-                        </p>
-                    </div>
+                <!-- Login From -->
 
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s,
-                        <a href="">forgot my password?</a>
-                    </p>
-                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                <form class="signup text-left">
+                    <!-- Owner Information -->
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mb-4 text-2xl text-center">Welcome to<br>
+                                PET PLAY DATEING APP</h3>
+                            <p>Please enter here your Information.</p>
+                        </div>
+                    </div>
+                    <!-- Email & Password -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputEmail1">User name is your Email</label>
+                            <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1" class="">Password</label>
+                            <input type="password" class="form-control" id="password-input" placeholder="Your Password">
+                            <a class="forgot-password" href="">Forgot password?</a>
+                        </div>
+                    </div>
+                    <!-- Login Button -->
+                    <div class="row text-center">
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-secondary signin-btn">Sign In</button>
+                        </div>
                 </form>
+
             </div>
-            <!--<div class="btn-group">
-                <button class="btn btn-outline-secondary">
-                    <a href="/">Back</a>
-                </button>
-            </div>
-            <div class="btn-group">
-                <button class="btn btn-outline-secondary" id="signup">
-                    <a href="/signup">JoinThePack</a>
-                </button>
-            </div>-->
         </div>
     </div>
-</div>
