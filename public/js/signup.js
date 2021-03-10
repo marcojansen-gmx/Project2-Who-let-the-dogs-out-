@@ -38,7 +38,7 @@ $(document).ready(function () {
       breed: dogBreedInput.val().trim(),
       sex: $("input[name='sex']:checked").val(),
       desexed: $("input[name='desexed']:checked").val(),
-      allergies: dogAllergiesInput.val().trim(),
+      // allergies: dogAllergiesInput.val().trim(),
       // childFriendly: $('input[name='childFriendly']:checked').val(),
       // dogImage: dogPhotoInput.val().trim(),
       userText: dogDescriptionInput.val().trim(),

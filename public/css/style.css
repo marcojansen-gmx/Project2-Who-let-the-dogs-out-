@@ -5,6 +5,7 @@
     max-width: 100px;
     
 }
+
 #home-card {
     max-width: 800px;
     height: auto;
@@ -16,6 +17,16 @@
 }
 
 #login-card {
+    max-width: 800px;
+    height: auto;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#contact-card {
     max-width: 800px;
     height: auto;
     background-color: antiquewhite;
@@ -102,4 +113,8 @@ footer {
       border-radius: 15px;
       padding-inline-start: 30px;
       padding-inline-end: 30px;
+  }
+
+  .index-carousel-headline {
+
   }
