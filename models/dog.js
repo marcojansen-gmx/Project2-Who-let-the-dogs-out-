@@ -17,10 +17,10 @@ module.exports = (sequelize, Sequelize) => {
     desexed: {
       type: Sequelize.BOOLEAN
     },
-    allergies: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
+    // allergies: {
+    //   type: Sequelize.STRING,
+    //   allowNull: false
+    // },
     childFriendly: {
       type: Sequelize.BOOLEAN
     },

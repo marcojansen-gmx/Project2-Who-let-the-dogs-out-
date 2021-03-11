@@ -1,9 +1,9 @@
 // ADRIAN
 const express = require('express');
 const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
 
 const session = require("express-session");
-
 
 // Sets up the Express App
 const app = express();
@@ -39,7 +39,7 @@ htmlRouter(app);
 apiRouter(app);
 
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: false }).then(function () {
+db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
     console.log('Listening on port %s. Visit http://localhost:%s/ in your browser.', PORT, PORT);
   });
