@@ -40,7 +40,7 @@ module.exports = function (app) {
           age: req.body.age,
           sex: req.body.sex,
           desexed: req.body.desexed,
-          allergies: req.body.allergies,
+          // allergies: req.body.allergies,
           userText: req.body.userText,
           dogImage: "/uploads/" + req.file.filename,
           UserId: newUser.id
@@ -49,7 +49,7 @@ module.exports = function (app) {
 
         await t.commit();
 
-        res.end();
+        res.redirect('../login', 301);
       } catch (err1) {
         await t.rollback();
         console.log('this is the error1 --->', err1);
@@ -83,55 +83,55 @@ module.exports = function (app) {
     }
   });
 
-  app.post('/send', (req, res) => {
-    const output = `
-      <img src="./logo/dog_logo.svg" alt="Who let the dogs out? Logo">
-      <p>You have a new playdate request</p>
-      <h3>Contact Details</h3>
-      <ul>  
-        <li>Name: ${req.body.name}</li>
-        <li>Email: ${req.body.email}</li>
-        <li>Dog Name: ${req.body.dogName}</li>
-        <li>Dog Breed: ${req.body.age}</li>
-        <li>Dog Name: ${req.body.sex}</li>
-      </ul>
-      <h3>Message</h3>
-      <p>${req.body.message}</p>
-    `;
+  // app.post('/send', (req, res) => {
+  //   const output = `
+  //     <img src="./logo/dog_logo.svg" alt="Who let the dogs out? Logo">
+  //     <p>You have a new playdate request</p>
+  //     <h3>Contact Details</h3>
+  //     <ul>  
+  //       <li>Name: ${req.body.name}</li>
+  //       <li>Email: ${req.body.email}</li>
+  //       <li>Dog Name: ${req.body.dogName}</li>
+  //       <li>Dog Breed: ${req.body.age}</li>
+  //       <li>Dog Name: ${req.body.sex}</li>
+  //     </ul>
+  //     <h3>Message</h3>
+  //     <p>${req.body.message}</p>
+  //   `;
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      host: 'mail.saveasigo.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: 'wltdo@saveasigo.com', // generated ethereal user
-        pass: 'wltdo@2021'  // generated ethereal password
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    });
+  //   // create reusable transporter object using the default SMTP transport
+  //   let transporter = nodemailer.createTransport({
+  //     host: 'mail.saveasigo.com',
+  //     port: 587,
+  //     secure: false, // true for 465, false for other ports
+  //     auth: {
+  //       user: 'wltdo@saveasigo.com', // generated ethereal user
+  //       pass: 'wltdo@2021'  // generated ethereal password
+  //     },
+  //     tls: {
+  //       rejectUnauthorized: false
+  //     }
+  //   });
 
-    // setup email data with unicode symbols
-    let mailOptions = {
-      from: '"Who Let The Dogs Out Playdate Request" <wltdo@saveasigo.com>', // sender address
-      to: `${req.body.email}`, // list of receivers
-      subject: 'Playdate Request', // Subject line
-      text: 'Hello world?', // plain text body
-      html: output // html body
-    };
+  //   // setup email data with unicode symbols
+  //   let mailOptions = {
+  //     from: '"Who Let The Dogs Out Playdate Request" <wltdo@saveasigo.com>', // sender address
+  //     to: `${req.body.email}`, // list of receivers
+  //     subject: 'Playdate Request', // Subject line
+  //     text: 'Hello world?', // plain text body
+  //     html: output // html body
+  //   };
 
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return console.log(error);
-      }
-      console.log('Message sent: %s', info.messageId);
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+  //   // send mail with defined transport object
+  //   transporter.sendMail(mailOptions, (error, info) => {
+  //     if (error) {
+  //       return console.log(error);
+  //     }
+  //     console.log('Message sent: %s', info.messageId);
+  //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-      // res.render('contact', { msg: 'Email has been sent' });
-    });
-  });
+  //     // res.render('contact', { msg: 'Email has been sent' });
+  //   });
+  // });
 
 };
