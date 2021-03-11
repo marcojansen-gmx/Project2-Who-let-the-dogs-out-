@@ -1,5 +1,5 @@
 class Carousel {
-  constructor (element) {
+  constructor(element) {
     this.playdate = element;
 
     // add first two swipecards programmatically
@@ -10,7 +10,7 @@ class Carousel {
     this.handle();
   }
 
-  handle () {
+  handle() {
     // list all swipecards
     this.swipecards = this.playdate.querySelectorAll('.swipecard');
 
@@ -47,7 +47,7 @@ class Carousel {
     }
   }
 
-  onTap (e) {
+  onTap(e) {
     // get finger position on top swipecard
     const propX = (e.center.x - e.target.getBoundingClientRect().left) / e.target.clientWidth;
 
@@ -59,17 +59,17 @@ class Carousel {
 
     // apply rotation around Y axis
     this.topSwipecard.style.transform =
-            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(' + rotateY + 'deg) scale(1)';
+      'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(' + rotateY + 'deg) scale(1)';
 
     // wait for transition end
     setTimeout(() => {
       // reset transform properties
       this.topSwipecard.style.transform =
-                'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
+        'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(1)';
     }, 100);
   }
 
-  onPan (e) {
+  onPan(e) {
     if (!this.isPanning) {
       this.isPanning = true;
 
@@ -88,7 +88,7 @@ class Carousel {
 
       // get finger position on top swipecard, top (1) or bottom (-1)
       this.isDraggingFrom =
-                (e.center.y - bounds.top) > this.topSwipecard.clientHeight / 2 ? -1 : 1;
+        (e.center.y - bounds.top) > this.topSwipecard.clientHeight / 2 ? -1 : 1;
     }
 
     // get new coordinates
@@ -110,12 +110,12 @@ class Carousel {
 
     // move and rotate top swipecard
     this.topSwipecard.style.transform =
-            'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg) rotateY(0deg) scale(1)';
+      'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg) rotateY(0deg) scale(1)';
 
     // scale up next swipecard
     if (this.nextSwipecard) {
       this.nextSwipecard.style.transform =
-            'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(' + scale + ')';
+        'translateX(-50%) translateY(-50%) rotate(0deg) rotateY(0deg) scale(' + scale + ')';
     }
 
     if (e.isFinal) {
@@ -128,25 +128,32 @@ class Carousel {
       if (this.nextSwipecard) this.nextSwipecard.style.transition = 'transform 100ms linear';
 
       // check threshold and movement direction
-      if (propX > 0.25 && e.direction == Hammer.DIRECTION_RIGHT) {
+      if (propX > 0.05 && e.direction == Hammer.DIRECTION_RIGHT) {
         successful = true;
         // get right border position
         posX = this.playdate.clientWidth;
-      } else if (propX < -0.25 && e.direction == Hammer.DIRECTION_LEFT) {
+      } else if (propX < -0.05 && e.direction == Hammer.DIRECTION_LEFT) {
         successful = true;
         // get left border position
         posX = -(this.playdate.clientWidth + this.topSwipecard.clientWidth);
-      } else if (propY < -0.25 && e.direction == Hammer.DIRECTION_UP) {
+      } else if (propY < -0.05 && e.direction == Hammer.DIRECTION_UP) {
         successful = true;
         // get top border position
         posY = -(this.playdate.clientHeight + this.topSwipecard.clientHeight);
       }
 
       if (successful) {
-      console.log(dirX);
-      // if 
+        console.log(dirX);
+        if (dirX === -1) {
+          window.location.reload();
+        } else {
+          alert("successful swipe");
+          window.location.reload();
+          // Beau mailer function
+        }
+        // if 
 
-    }
+      }
       //   // throw swipecard in the chosen direction
       //   this.topSwipecard.style.transform =
       //               'translateX(' + posX + 'px) translateY(' + posY + 'px) rotate(' + deg + 'deg)';
@@ -172,13 +179,13 @@ class Carousel {
     }
   }
 
-  push () {
+  push() {
     const swipecard = document.createElement('div');
 
     swipecard.classList.add('swipecard');
 
     swipecard.style.backgroundImage =
-            "url('https://picsum.photos/320/320/?random=" + Math.round(Math.random() * 1000000) + "')";
+      "url('https://picsum.photos/320/320/?random=" + Math.round(Math.random() * 1000000) + "')";
 
     this.playdate.insertBefore(swipecard, this.playdate.firstChild);
   }
