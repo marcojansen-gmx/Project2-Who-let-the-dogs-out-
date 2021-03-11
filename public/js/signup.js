@@ -64,7 +64,7 @@ $(document).ready(function () {
       success: function (res) {
         // console.log({res});
 
-        window.location.replace('/playdates');
+        window.location.replace('/login');
       }
     });
   });
