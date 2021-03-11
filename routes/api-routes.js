@@ -49,7 +49,7 @@ module.exports = function (app) {
 
         await t.commit();
 
-        res.redirect('../login', 301);
+        res.end();
       } catch (err1) {
         await t.rollback();
         console.log('this is the error1 --->', err1);
