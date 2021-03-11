@@ -16,7 +16,9 @@ module.exports = function (app) {
     res.render("index");
   });
 
-
+  app.get("/contact", unauthorized, (req, res) => {
+    res.render("contact");
+  });
 
   app.get("/signup", (req, res) => {
     res.render("signup", {
