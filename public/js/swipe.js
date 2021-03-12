@@ -43,6 +43,8 @@ class Carousel {
       });
       this.hammer.on('pan', (e) => {
         this.onPan(e);
+        // console.log('Event on pan2 ===> ', e);
+
       });
     }
   }
@@ -147,8 +149,11 @@ class Carousel {
         if (dirX === -1) {
           window.location.reload();
         } else {
-          alert("successful swipe");
-          window.location.reload();
+          console.log('This Playdate --->', this.playdate);
+          console.log('Event on pan1 ===> ', this.hammer);
+
+          // alert("successful swipe");
+          // window.location.reload();
           // Beau mailer function
         }
         // if 
