@@ -7,7 +7,8 @@ const multer = require('multer');
 // const upload = multer({ dest: path.join(__dirname, "../public/data") });
 // const storage = multer.memoryStorage();
 const upload = multer({ dest: path.join(__dirname, "../public/uploads/") });
-
+const nodemailer = require('nodemailer');
+const hbs = require("nodemailer-express-handlebars");
 
 
 module.exports = function (app) {
@@ -17,6 +18,7 @@ module.exports = function (app) {
       id: req.user.id
     });
   });
+
   app.post('/api/signup', upload.single('dogImage'), async (req, res) => {
     // console.log(req.file, req.body);
 
@@ -83,55 +85,57 @@ module.exports = function (app) {
     }
   });
 
-  // app.post('/send', (req, res) => {
-  //   const output = `
-  //     <img src="./logo/dog_logo.svg" alt="Who let the dogs out? Logo">
-  //     <p>You have a new playdate request</p>
-  //     <h3>Contact Details</h3>
-  //     <ul>  
-  //       <li>Name: ${req.body.name}</li>
-  //       <li>Email: ${req.body.email}</li>
-  //       <li>Dog Name: ${req.body.dogName}</li>
-  //       <li>Dog Breed: ${req.body.age}</li>
-  //       <li>Dog Name: ${req.body.sex}</li>
-  //     </ul>
-  //     <h3>Message</h3>
-  //     <p>${req.body.message}</p>
-  //   `;
+  app.post('api/confirmationEmail', async (req, res) => {
+    // create reusable transporter object using the default SMTP transport
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'wholetthedogsoutsixtynine@gmail.com',
+        pass: 'Wholetthedogsout'
+      }
+    });
+    transporter.use('compile', hbs({
+      viewEngine: {
+        extname: '.handlebars',
+        layoutsDir: __dirname + '../views/email/emaillayout/',
+        defaultLayout: 'main',
+      },
+      viewPath: '../views/email'
+    }));
 
-  //   // create reusable transporter object using the default SMTP transport
-  //   let transporter = nodemailer.createTransport({
-  //     host: 'mail.saveasigo.com',
-  //     port: 587,
-  //     secure: false, // true for 465, false for other ports
-  //     auth: {
-  //       user: 'wltdo@saveasigo.com', // generated ethereal user
-  //       pass: 'wltdo@2021'  // generated ethereal password
-  //     },
-  //     tls: {
-  //       rejectUnauthorized: false
-  //     }
-  //   });
-
-  //   // setup email data with unicode symbols
-  //   let mailOptions = {
-  //     from: '"Who Let The Dogs Out Playdate Request" <wltdo@saveasigo.com>', // sender address
-  //     to: `${req.body.email}`, // list of receivers
-  //     subject: 'Playdate Request', // Subject line
-  //     text: 'Hello world?', // plain text body
-  //     html: output // html body
-  //   };
-
-  //   // send mail with defined transport object
-  //   transporter.sendMail(mailOptions, (error, info) => {
-  //     if (error) {
-  //       return console.log(error);
-  //     }
-  //     console.log('Message sent: %s', info.messageId);
-  //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-  //     // res.render('contact', { msg: 'Email has been sent' });
-  //   });
-  // });
-
+    const targetUserId = req.body.target_user_id;
+    const targetUser = await db.User.findOne({
+      where: {
+        id: targetUserId
+      }
+    })
+    // users dogs information
+    
+    const currentUser = req.user;
+    const userDog = await db.Dog.findOne({
+      where: {
+        UserId: currentUser.id
+      }
+    })
+    // users email
+    const mailOptions = {
+      from: 'dogdate97@gmail.com', // sender address
+      to: targetUser.email, // list of receivers
+      subject: 'Who Let the Dogs Out - Date Confirmation',
+      template: 'index', // Subject line
+      // plain text body
+      context: {
+        dog: userDog
+      }
+    };
+    transporter.sendMail(mailOptions, function (err, info) {
+      if (err)
+        console.log(err)
+      else
+        console.log(info);
+    })
+  });
 };
+// send mail with defined transport object
+    // targets email
+    // FIXME: change target_user_id
