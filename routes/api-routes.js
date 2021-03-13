@@ -151,7 +151,8 @@ module.exports = function (app) {
       <li>Name: ${req.user.firstName}</li>
       <li>Email: ${req.user.email}</li>
       <li>Dog Name: ${currentUserDog.dogName}</li>
-      <li>Dog Breed: ${currentUserDog.age}</li>
+      <li>Dog Breed: ${currentUserDog.breed}</li>
+      li>Dog Age: ${currentUserDog.age}</li>
       <li>Dog Sex: ${dogSex}</li>
     </ul>
     <h3>Message</h3>
