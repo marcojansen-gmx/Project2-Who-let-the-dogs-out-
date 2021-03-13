@@ -145,17 +145,31 @@ class Carousel {
       }
 
       if (successful) {
+        console.log(sessionStorage.user);
+
         console.log(dirX);
         if (dirX === -1) {
           window.location.reload();
         } else {
-          console.log('This Playdate --->', this.playdate);
-          console.log('Event on pan1 ===> ', this.hammer);
+          let dogId = this.playdate.querySelector("#dogId").value;
+          console.log(`Dog ID: ${dogId}`);
+
+          $.post('/api/confirmationEmail', {
+            dogId: dogId
+          })
+            .then(function (res) {
+              alert('Email sent');
+            })
+            .catch(function (err) {
+              console.log(err);
+            });
+
 
           // alert("successful swipe");
           // window.location.reload();
           // Beau mailer function
         }
+
         // if 
 
       }
