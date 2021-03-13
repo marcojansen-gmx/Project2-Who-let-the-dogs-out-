@@ -152,7 +152,7 @@ module.exports = function (app) {
       <li>Email: ${req.user.email}</li>
       <li>Dog Name: ${currentUserDog.dogName}</li>
       <li>Dog Breed: ${currentUserDog.breed}</li>
-      li>Dog Age: ${currentUserDog.age}</li>
+      <li>Dog Age: ${currentUserDog.age}</li>
       <li>Dog Sex: ${dogSex}</li>
     </ul>
     <h3>Message</h3>
