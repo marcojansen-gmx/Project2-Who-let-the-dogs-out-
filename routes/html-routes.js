@@ -34,6 +34,10 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/contact", unauthorized, (req, res) => {
+    res.render("contact");
+  });
+
   // to be used for handlebars
   app.get('/playdate', (req, res) => {
     // const query = {};
