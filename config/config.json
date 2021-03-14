@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Y3in@mysql",
+    "password": "Perth2013",
     "database": "dogs_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
