@@ -132,7 +132,6 @@ module.exports = function (app) {
     let dogOwnerEmail = dogOwner.email;
     console.log(dogOwnerEmail);
 
-
     const currentUserDog = await db.Dog.findOne({
       where: {
         UserId: req.user.id
@@ -159,7 +158,6 @@ module.exports = function (app) {
     <p>${currentUserDog.userText}</p>
   `;
 
-
     sendEmail(dogOwnerEmail, 'Playdate request', output).then(m => {
       console.log('Email sent');
       res.json({
@@ -168,47 +166,5 @@ module.exports = function (app) {
     }).catch(e => {
       console.log('ERROR');
     });
-
-    /*
-        // create reusable transporter object using the default SMTP transport
-        var transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: 'wholetthedogsoutsixtynine@gmail.com',
-            pass: 'Wholetthedogsout'
-          }
-        });
-    
-        transporter.use('compile', hbs({
-          viewEngine: {
-            extname: '.handlebars',
-            layoutsDir: __dirname + '../views/email/emaillayout/',
-            defaultLayout: 'main',
-          },
-          viewPath: '../views/email'
-        }));
-    
-        // users email
-        const mailOptions = {
-          from: 'dogdate97@gmail.com', // sender address
-          to: targetUser.email, // list of receivers
-          subject: 'Who Let the Dogs Out - Date Confirmation',
-          template: 'index', // Subject line
-          // plain text body
-          context: {
-            dog: userDog
-          }
-        };
-        transporter.sendMail(mailOptions, function (err, info) {
-          if (err)
-            console.log(err)
-          else
-            console.log(info);
-        })
-    */
-
   });
 };
-// send mail with defined transport object
-    // targets email
-    // FIXME: change target_user_id

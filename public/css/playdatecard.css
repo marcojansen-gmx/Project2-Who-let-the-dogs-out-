@@ -78,3 +78,11 @@
   font-style: italic;
   color: #36af73;
 }
+
+.hide {
+  display: none;
+}
+
+.hide2 {
+  display: none;
+}
