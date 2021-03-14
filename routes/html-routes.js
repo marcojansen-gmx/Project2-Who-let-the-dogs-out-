@@ -2,9 +2,6 @@
 const { response } = require("express");
 const path = require("path");
 const { Op } = require("sequelize");
-
-// const db = require("./../models");
-
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const unauthorized = require("../config/middleware/unauthorized");
@@ -55,10 +52,8 @@ module.exports = function (app) {
       res.json(dbDog);
     });
   });
-
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-
   app.get("/playdates", isAuthenticated, async (req, res) => {
     const dogs = await db.Dog.findAll({
       include: db.User,
@@ -71,7 +66,6 @@ module.exports = function (app) {
 
     const dog = dogs[Math.floor(Math.random() * dogs.length)] || [];
 
-
     let selectedDog = dog.dataValues;
     selectedDog.ownerFirst = dog.User.firstName;
     selectedDog.ownerLastname = dog.User.lastName;
@@ -81,13 +75,10 @@ module.exports = function (app) {
     res.render("playdate", {
       user: req.user,
       dog: selectedDog,
-
       scripts: [
         "/js/hammer.js",
         "/js/swipe.js",
       ]
     });
-
   });
 };
-

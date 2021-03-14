@@ -166,20 +166,15 @@ class Carousel {
                 window.location.reload();
                 document.querySelector(".hide2").style.display = "block";
               }, 1000);
-              
             })
             .catch(function (err) {
               console.log(err);
             });
-
-
           // alert("successful swipe");
           // window.location.reload();
           // Beau mailer function
         }
-
         // if 
-
       }
       //   // throw swipecard in the chosen direction
       //   this.topSwipecard.style.transform =

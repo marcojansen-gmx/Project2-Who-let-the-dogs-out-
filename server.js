@@ -21,18 +21,15 @@ app.use(express.json());
 // Requiring our models for syncing
 const db = require('./models');
 
-// app.use("/api", apiRouter);
-// app.use("/html", htmlRouter);
-// app.use("/users", userRouter);
 // Static directory
 app.use(express.static('public'));
 
 app.use(session({
-  secret: 'anything', 
+  secret: 'anything',
   name: 'dogSsessionId',
   resave: true,
   saveUninitialized: true,
-  rolling: true, 
+  rolling: true,
   cookie: {
     httpOnly: true,
     maxAge: 1 * 60 * 60 * 1000
