@@ -79,10 +79,29 @@
   color: #36af73;
 }
 
+
 .hide {
   display: none;
 }
 
 .hide2 {
   display: none;
+
+
+.btn-card-yes {
+  text-align-last: right;
+}
+
+.btn-card-no {
+  margin-left: 20px;
+}
+
+.btn :hover {
+  text-decoration-line: none;
+  color: #16a085;
+} 
+
+
+a {
+  text-decoration-line: none;
 }

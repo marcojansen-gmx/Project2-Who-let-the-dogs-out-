@@ -9,7 +9,6 @@
       <li><a href="/signup">Signup</a></li>
       <li><a href="/contact">Contact</a></li>
       <li><a href="/logout" class="active">Logout</a></li>
-
     </ul>
   </div>
 </nav>
@@ -30,11 +29,12 @@
             <img id="dogimage" draggable="false" class="img-dog" src="{{ dog.dogImage }}" alt="Picture of the dogs">
             <div class="title-total">
               <input type="hidden" id="dogId" name="dogId" value="{{ dog.id }}">
-              <div class="title"> Owner {{ dog.ownerFirst }} {{ dog.ownerLastname }} </div>
+              <div class="title"> Owner: {{ dog.ownerFirst }} {{ dog.ownerLastname }} </div>
               <h2 id="dogname">Doggy to play with</h2>
               <div class="desc" id="dogName">Dog's name: {{dog.dogName}}</div>
               <div class="desc" id="breed">Breed: {{dog.breed}}</div>
               <div class="desc" id="age">Age: {{dog.age}}</div>
+
               <div class="desc" id="sex">Sex: {{#if dog.sex}} Female {{else}} Male {{/if}}</div>
               <div class="desc" id="desexed">Desexed: {{#if dog.desexed}} No {{else }} Yes {{/if}}</div>
               <div class="desc kursive"> Small discription: {{dog.userText}}</div>
@@ -54,5 +54,19 @@
           </div>
         </div>
       </div>
+      <div class="row container">
+        <div class="col-4 btn-card-no disabled">
+          <button class="btn btn-outline-secondary">
+            <a href="#" class="disabled">NO!</a>
+          </button>
+        </div>
+        <div class="col btn-card-yes disabled">
+          <button class="btn btn-outline-secondary">
+            <a href="#" class="disabled">YES!</a>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
