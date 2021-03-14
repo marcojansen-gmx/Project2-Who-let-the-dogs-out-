@@ -80,6 +80,14 @@
 }
 
 
+.hide {
+  display: none;
+}
+
+.hide2 {
+  display: none;
+
+
 .btn-card-yes {
   text-align-last: right;
 }

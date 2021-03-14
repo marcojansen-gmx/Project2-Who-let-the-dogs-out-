@@ -152,13 +152,21 @@ class Carousel {
           window.location.reload();
         } else {
           let dogId = this.playdate.querySelector("#dogId").value;
-          console.log(`Dog ID: ${dogId}`);
+          // console.log(`Dog ID: ${dogId}`);
+          document.querySelector(".hide").style.display = "block";
 
           $.post('/api/confirmationEmail', {
             dogId: dogId
           })
             .then(function (res) {
-              alert('Email sent');
+              document.querySelector(".hide").style.display = "none";
+              document.querySelector(".hide2").style.display = "block";
+              // alert('Email sent');
+              setTimeout(function () {
+                window.location.reload();
+                document.querySelector(".hide2").style.display = "block";
+              }, 1000);
+              
             })
             .catch(function (err) {
               console.log(err);
