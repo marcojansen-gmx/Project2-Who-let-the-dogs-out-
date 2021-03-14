@@ -2,14 +2,10 @@
 const path = require("path");
 const db = require('../models');
 const passport = require('../config/passport');
-// const unauthorized = require('../config/middleware/unauthorized');
 const multer = require('multer');
-// const upload = multer({ dest: path.join(__dirname, "../public/data") });
-// const storage = multer.memoryStorage();
 const upload = multer({ dest: path.join(__dirname, "../public/uploads/") });
 const nodemailer = require('nodemailer');
 const hbs = require("nodemailer-express-handlebars");
-
 
 async function sendEmail(to, subject, html) {
   return new Promise((resolve, reject) => {
@@ -47,7 +43,6 @@ module.exports = function (app) {
   });
 
   app.post('/api/signup', upload.single('dogImage'), async (req, res) => {
-    // console.log(req.file, req.body);
 
     console.log(req.file.filename);
 
@@ -58,7 +53,7 @@ module.exports = function (app) {
           email: req.body.email,
           password: req.body.password,
           firstName: req.body.firstName,
-          lastName: req.body.lastName,//Building there that much less go to word one all
+          lastName: req.body.lastName,
           postcode: req.body.postcode
         },
           { transaction: t });
@@ -115,10 +110,6 @@ module.exports = function (app) {
   });
 
   app.post('/api/confirmationEmail', async (req, res) => {
-    console.log('confirmationEmail');
-    console.log(req);
-    console.log(req.body);
-
     const selectedDogId = req.body.dogId;
     const selectedUserDog = await db.Dog.findOne({
       include: db.User,
@@ -158,7 +149,7 @@ module.exports = function (app) {
     <p>${currentUserDog.userText}</p>
   `;
 
-    sendEmail(dogOwnerEmail, 'Playdate request', output).then(m => {
+    sendEmail(dogOwnerEmail, 'Who Let The Dogs Out - Playdate Request', output).then(m => {
       console.log('Email sent');
       res.json({
         message: 'Email sent'

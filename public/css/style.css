@@ -125,3 +125,8 @@ p {
     text-decoration: none;
     color: #24d4a8;
 }
+
+::placeholder {
+    color: teal !important; 
+    opacity: 0.3 !important; 
+  }
