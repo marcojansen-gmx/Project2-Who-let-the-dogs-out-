@@ -1,27 +1,50 @@
-<!-- Navbar -->
-<nav>
-  <div class="menu-icon">
-    <i class="fa fa-bars fa-2x"></i>
-  </div>
-  <div class="menu">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/signup">Signup</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/login" class="active">Logout</a></li>
+  <!-- Navbar -->
+    <nav>
+        <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/logout" class="active">Logout</a></li>
 
-    </ul>
-  </div>
-</nav>
-<!-- Start Playdate -->
-<div id="playdate-card-wrapper" class="js-playdate-card-wrapper">
-  <div class="swipecard">
-    <div id="playdate-card" class="container text-center p-4 flex-1 flex flex-col rounded-lg">
-      <div class="mb-4 text-grey-darker text-sm flex-1">
-        <div class="play-card">
-          <!-- Picture of dog owner -->
-          <div>
-            <img class="img-avatar" src="/logo/dog_logo.svg" alt="Picture od Dog owner">
+            </ul>
+        </div>
+    </nav>
+  <!--------------- Start Playdate ------------->
+  <div id="playdate-card-wrapper" class="js-playdate-card-wrapper" data-useremail='{{ user.email }}'>
+    <div class="swipecard">
+      <div id="playdate-card" class="container text-center p-4 flex-1 flex flex-col rounded-lg">
+        <div class="mb-4 text-grey-darker text-sm flex-1">
+          <div class="play-card">
+            <!-- Picture of dog owner -->
+            <div>
+              <img class="img-avatar"
+                src="/logo/dog_logo.svg"
+                alt="Picture od Dog owner">
+            </div>
+            <!-- Picture of dog -->
+            <div class="play-card-text">
+              <img id="dogimage" draggable="false" class="img-dog" src="{{ dog.dogImage }}"
+                alt="Picture of the dogs">
+              <div class="title-total">
+                 <input type="hidden" id="dogId" name="dogId" value="{{ dog.id }}">
+                <div class="title"> Owner {{ dog.ownerFirst }}  {{ dog.ownerLastname }} </div>
+                <h2 id="dogname">Doggy to play with</h2>
+                <div class="desc" id="dogName">Dog's name: {{dog.dogName}}</div>
+                <div class="desc" id="breed">Breed: {{dog.breed}}</div>
+                <div class="desc" id="age">Age: {{dog.age}}</div>
+                <div class="desc" id="sex">Sex: {{#if dog.sex}} Yes {{else}} No {{/if}}</div>
+                {{!-- TODO false/true replace --}}
+                <div class="desc" id="desexed">Desexed: {{#if dog.desexed}} Yes {{else }} No {{/if}}</div>
+                {{!-- TODO false/true replace with text --}}
+                {{!-- <div class="desc" id="allergies">Allergies: {{dog.allergies}}</div> --}}
+                {{!-- <div class="desc" id="child-friendly">Child-friendly: {{dog.childFriendly}}</div> --}}
+                <div class="desc kursive"> Small discription: {{dog.userText}}</div>
+              </div>
+            </div>
           </div>
           <!-- Picture of dog -->
           <div class="play-card-text">

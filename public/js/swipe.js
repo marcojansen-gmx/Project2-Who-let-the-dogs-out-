@@ -43,6 +43,8 @@ class Carousel {
       });
       this.hammer.on('pan', (e) => {
         this.onPan(e);
+        // console.log('Event on pan2 ===> ', e);
+
       });
     }
   }
@@ -143,14 +145,31 @@ class Carousel {
       }
 
       if (successful) {
+        console.log(sessionStorage.user);
+
         console.log(dirX);
         if (dirX === -1) {
           window.location.reload();
         } else {
-          alert("successful swipe");
-          window.location.reload();
+          let dogId = this.playdate.querySelector("#dogId").value;
+          console.log(`Dog ID: ${dogId}`);
+
+          $.post('/api/confirmationEmail', {
+            dogId: dogId
+          })
+            .then(function (res) {
+              alert('Email sent');
+            })
+            .catch(function (err) {
+              console.log(err);
+            });
+
+
+          // alert("successful swipe");
+          // window.location.reload();
           // Beau mailer function
         }
+
         // if 
 
       }

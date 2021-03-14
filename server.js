@@ -27,7 +27,17 @@ const db = require('./models');
 // Static directory
 app.use(express.static('public'));
 
-app.use(session({ secret: 'anything' }));
+app.use(session({
+  secret: 'anything', 
+  name: 'dogSsessionId',
+  resave: true,
+  saveUninitialized: true,
+  rolling: true, 
+  cookie: {
+    httpOnly: true,
+    maxAge: 1 * 60 * 60 * 1000
+  }
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -13,10 +13,16 @@ const db = require("../models");
 module.exports = function (app) {
 
   app.get("/", unauthorized, (req, res) => {
-    res.render("index");
+    res.render("index", {
+      scripts: [
+        "/js/index.js"
+      ]
+    });
   });
 
-
+  app.get("/contact", unauthorized, (req, res) => {
+    res.render("contact");
+  });
 
   app.get("/signup", (req, res) => {
     res.render("signup", {
@@ -41,10 +47,11 @@ module.exports = function (app) {
   // to be used for handlebars
   app.get('/playdate', (req, res) => {
     // const query = {};
+    console.log("playdate");
     db.Dog.findAll({
       include: db.User,
     }).then((dbDog) => {
-      console.log(dbDog);
+      console.log('playdate dog ==>', JSON.stringify(dbDog));
       res.json(dbDog);
     });
   });
@@ -53,8 +60,8 @@ module.exports = function (app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
 
   app.get("/playdates", isAuthenticated, async (req, res) => {
-
     const dogs = await db.Dog.findAll({
+      include: db.User,
       where: {
         UserId: {
           [Op.ne]: req.user.id
@@ -65,17 +72,19 @@ module.exports = function (app) {
     const dog = dogs[Math.floor(Math.random() * dogs.length)] || [];
 
 
+    let selectedDog = dog.dataValues;
+    selectedDog.ownerFirst = dog.User.firstName;
+    selectedDog.ownerLastname = dog.User.lastName;
 
-    console.log(dogs);
+    console.log(JSON.stringify(selectedDog));
 
     res.render("playdate", {
       user: req.user,
-      dog: dog.dataValues,
+      dog: selectedDog,
 
       scripts: [
         "/js/hammer.js",
         "/js/swipe.js",
-
       ]
     });
 

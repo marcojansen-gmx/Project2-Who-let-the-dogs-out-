@@ -71,6 +71,9 @@ $(document).ready(function () {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
 
+  $('#flexCheckDefault').change(function () {
+    $('#signupSubmit').prop("disabled", !this.checked);
+}).change();
 
   function handleLoginErr(err) {
     $('#alert .msg').text(err.responseJSON);
