@@ -57,17 +57,17 @@ The application makes use of the following technologies:
 9.   ### Sequelize
      Sequelize is a powerful library in Javascript that makes it easy to manage a SQL database. Sequelize can layer over different protocols, but here we'll use MySQL. At its core, Sequelize is an Object-Relational Mapper – meaning that it maps an object syntax onto our database schemas. _[ref](https://sequelize.org)_
 
-10.   ### Handlebars
+10.  ### Handlebars
      Handlebars takes a template with given variables and compiles it into a function. This function is then executed by passing a JSON object as an argument. On its execution, the function returns the required HTML after replacing the variables of the template with their corresponding values. _[ref](https://handlebarsjs.com)_
 
-11.   ### NodeMailer
+11.  ### NodeMailer
      Nodemailer is a module for Node. js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node. js users turn to by default.  _[ref](https://nodemailer.com)_
 
-12.   ### Heroku
+12.  ### Heroku
      Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — they're the fastest way to go from idea to URL, bypassing many those infrastructure headaches. _[ref](https://heroku.com)_
 
-14.   ### Passport.JS
-     Passport is authentication middleware for Node. js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password  _[ref](https://passportjs.org)_
+14.  ### Passport.JS
+     Passport is authentication middleware for Node. js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password.  _[ref](https://passportjs.org)_
 
 
 ## Criteria
