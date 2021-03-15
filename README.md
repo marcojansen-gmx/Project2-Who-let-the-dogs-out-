@@ -85,7 +85,6 @@ As a user I want to receive an email with the information of a match, so I can g
 ## Instructions
 User lands on the index page. If user is not registered then he can sign up. If he is registered he can log in. Once a new user is signed up he will be directed to the log in page. Once he logs in he will be directed to the Playdates page where he will be shown a card with a potential play date. If the user does not like the prospect he can swipe right. If he likes the prospect he can swipe right. The app will then send an email to the prospect with the user's dog and e-mail address. The user can then carry on looking for more prospects or he can log out. Once logged out it will clear the session and he will be redirected to the index page.
 
-
 ## Some Screenshots
 
 1. ### Index Page 
@@ -100,7 +99,6 @@ User lands on the index page. If user is not registered then he can sign up. If 
   * ![PlayDates Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/PlayCardScreenshot.png?raw=true)
 6. ### E-mail Sent 
   * ![Email Sent](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/EmailScreenshot.png?raw=true)
-
 
 ## Credits
 :bellhop_bell: 
