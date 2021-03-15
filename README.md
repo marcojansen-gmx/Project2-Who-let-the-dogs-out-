@@ -88,17 +88,17 @@ BASIC INSTRUCTIONS FOR THE APP
 ## Some Screenshots
 
 1. ### Index Page 
-  * ![Index Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20INDEX.png?raw=true)
+  * ![Index Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/IndexPageScreenshot.png?raw=true)
 2. ### Contact Page 
-  * ![Contact Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20QUIZ.png?raw=true)
+  * ![Contact Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/ContactScreenShot.png?raw=true)
 3. ### Signup Page  
-  * ![Signup Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20SUBMIT.png?raw=true)
+  * ![Signup Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/SignupScreenShot.png?raw=true)
 4. ### Login Page 
-  * ![Login Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20HIGH%20SCORES.png?raw=true)
-5. ### Plaudates Page 
-  * ![PlayDates Page](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20HARRY%20POTTER.png?raw=true)
+  * ![Login Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/LoginScreenshot.png?raw=true)
+5. ### Playdates Page 
+  * ![PlayDates Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/PlayCardScreenshot.png?raw=true)
 6. ### E-mail Sent 
-  * ![Email Sent](https://github.com/marcojansen-gmx/LOTR-or-Potter-Quiz/blob/main/Assets/pic/Readme%20pics/MOBI%20LOTR.png?raw=true)
+  * ![Email Sent](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/EmailScreenshot.png?raw=true)
 
 
 ## Credits
