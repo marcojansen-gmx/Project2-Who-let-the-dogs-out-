@@ -83,8 +83,7 @@ ADD USER STORY HERE
 
 ## Instructions
 
-Users must either login to the app if they are an existing member or alternatively signup if they are a new member. When singing up to the platform, users must enter their own personal details as well as their dog's details. Users should take care when entering these details as the current version of this web application does not allow for updates. Once the user is logged in to the web application, they may access the dating page which will display all of the registered dogs on the site. If they do not like the dog, they may swipe left. If the user does find a suitbale match for their own dog, they may swipe right, which will indicate a 'like' or a 'match'. A confirmation email will be sent to the dogs owner whom they have selected with their dog's details and also their email address so the two owners may communicate accordingly. 
-
+User lands on the index page. If user is not registered then he can sign up. If he is registered he can log in. Once a new user is signed up he will be directed to the log in page. Once he logs in he will be directed to the Playdates page where he will be shown a card with a potential play date. If the user does not like the prospect he can swipe right. If he likes the prospect he can swipe right. The app will then send an email to the prospect with the user's dog and e-mail address. The user can then carry on looking for more prospects or he can log out. Once logged out it will clear the session and he will be redirected to the index page.
 
 ## Some Screenshots
 
@@ -104,7 +103,7 @@ Users must either login to the app if they are an existing member or alternative
 
 ## Credits
 :bellhop_bell: 
-Developed by WANDaRING
+Developed by:
 
 Contact | Mobile | E-mail
 ------------ | ------------- | ------------
