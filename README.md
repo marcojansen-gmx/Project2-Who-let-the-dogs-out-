@@ -69,22 +69,26 @@ The application makes use of the following technologies:
 14.  ### Passport.JS
      Passport is authentication middleware for Node. js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password.  _[ref](https://passportjs.org)_
 
-
-## Criteria
-GIVEN 
-WHEN 
-THEN 
-WHEN 
-THEN 
-
-
 ## Story
-ADD USER STORY HERE
+As a user I want a starter page that tells me something about the application, so i am informed before proceeding to login or registration.
+As an unregistered user I want to be taken to a registration form, so I can put my details down and register.
+As a registered user I want to be taken to a login option, so I can login to the application.
+As a user I want to be able to accept or decline the terms and conditions before I register, so that I get no surprises.
+As a user I want to get taken back to the login after I successfully registered, so that I can login to the app.
+As a user I want to access the app after a successful login, so that I can start using the application.
+As a user I want to be shown details of dogs which have already been signed up, so I can choose a playdate candidate.
+As a user I want the option to swipe a selection to a side, so that I match or un-match my dog.
+As a user I want the option to alternatively click a button, so I can match or un-match my dog.
+As a user I want to be able to logout when I am finished using the app, so that I can get logged out and return to the starter page.
+As a user I want to receive an email with the information of a match, so I can get in touch with the owner to arrange a play date.
 
 ## Instructions
 
+<<<<<<< HEAD
+=======
 User lands on the index page. If user is not registered then he can sign up. If he is registered he can log in. Once a new user is signed up he will be directed to the log in page. Once he logs in he will be directed to the Playdates page where he will be shown a card with a potential play date. If the user does not like the prospect he can swipe right. If he likes the prospect he can swipe right. The app will then send an email to the prospect with the user's dog and e-mail address. The user can then carry on looking for more prospects or he can log out. Once logged out it will clear the session and he will be redirected to the index page.
 
+>>>>>>> 028d5a9716013f4b050aea0829383a188ab675c6
 ## Some Screenshots
 
 1. ### Index Page 
@@ -99,7 +103,6 @@ User lands on the index page. If user is not registered then he can sign up. If 
   * ![PlayDates Page](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/PlayCardScreenshot.png?raw=true)
 6. ### E-mail Sent 
   * ![Email Sent](https://github.com/marcojansen-gmx/Project2-Who-let-the-dogs-out-/blob/main/public/ScreenShots/EmailScreenshot.png?raw=true)
-
 
 ## Credits
 :bellhop_bell: 
