@@ -82,7 +82,8 @@ THEN
 ADD USER STORY HERE
 
 ## Instructions
-BASIC INSTRUCTIONS FOR THE APP
+
+Users must either login to the app if they are an existing member or alternatively signup if they are a new member. When singing up to the platform, users must enter their own personal details as well as their dog's details. Users should take care when entering these details as the current version of this web application does not allow for updates. Once the user is logged in to the web application, they may access the dating page which will display all of the registered dogs on the site. If they do not like the dog, they may swipe left. If the user does find a suitbale match for their own dog, they may swipe right, which will indicate a 'like' or a 'match'. A confirmation email will be sent to the dogs owner whom they have selected with their dog's details and also their email address so the two owners may communicate accordingly. 
 
 
 ## Some Screenshots
